@@ -1,0 +1,99 @@
+\doxysection{list.\+c File Reference}
+\hypertarget{list_8c}{}\label{list_8c}\index{list.c@{list.c}}
+{\ttfamily \#include "{}list.\+h"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{list_8h_aa89b8bc105d9a09d4e7c06e8b34078a7}{List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{list_8c_a8668cbe6c584fe11e610d2895f0f16c7}{list\+\_\+create}} (void)
+\item 
+void \mbox{\hyperlink{list_8c_a1dc24d1b157b58dbe757afcb5bcc1991}{list\+\_\+destroy}} (\mbox{\hyperlink{list_8h_aa89b8bc105d9a09d4e7c06e8b34078a7}{List}} \texorpdfstring{$\ast$}{*}lst)
+\item 
+bool \mbox{\hyperlink{list_8c_acc4a08770f6d05193738220f017e3340}{list\+\_\+is\+\_\+empty}} (const \mbox{\hyperlink{list_8h_aa89b8bc105d9a09d4e7c06e8b34078a7}{List}} \texorpdfstring{$\ast$}{*}lst)
+\item 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} \mbox{\hyperlink{list_8c_a3ae178d376dde7a3af32166272b0ed89}{list\+\_\+first}} (\mbox{\hyperlink{list_8h_aa89b8bc105d9a09d4e7c06e8b34078a7}{List}} \texorpdfstring{$\ast$}{*}lst)
+\item 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} \mbox{\hyperlink{list_8c_a036e6dbe5c11813a27588c63fe5f4993}{list\+\_\+end}} (\mbox{\hyperlink{list_8h_aa89b8bc105d9a09d4e7c06e8b34078a7}{List}} \texorpdfstring{$\ast$}{*}lst)
+\item 
+bool \mbox{\hyperlink{list_8c_ae95ac421290b72f4391632e074838b06}{list\+\_\+pos\+\_\+equal}} (\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} p1, \mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} p2)
+\item 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} \mbox{\hyperlink{list_8c_a84c7aa01487b5bbfffe98ace96db33d5}{list\+\_\+next}} (\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} pos)
+\item 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} \mbox{\hyperlink{list_8c_afba334d3cb5b239cf649d321411a04fc}{list\+\_\+prev}} (\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} pos)
+\item 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} \mbox{\hyperlink{list_8c_ae700e4c3be5b5107302582ecaf432048}{list\+\_\+insert}} (\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} pos, const char \texorpdfstring{$\ast$}{*}value)
+\item 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} \mbox{\hyperlink{list_8c_a03b0695becb379c4ba22790271a6302b}{list\+\_\+remove}} (\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} pos)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{list_8c_aa804370c75e893d6477e92dd340950f2}{list\+\_\+inspect}} (\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} pos)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{list_8c_a8668cbe6c584fe11e610d2895f0f16c7}\index{list.c@{list.c}!list\_create@{list\_create}}
+\index{list\_create@{list\_create}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_create()}{list\_create()}}
+{\footnotesize\ttfamily \label{list_8c_a8668cbe6c584fe11e610d2895f0f16c7} 
+\mbox{\hyperlink{list_8h_aa89b8bc105d9a09d4e7c06e8b34078a7}{List}} \texorpdfstring{$\ast$}{*} list\+\_\+create (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{list_8c_a1dc24d1b157b58dbe757afcb5bcc1991}\index{list.c@{list.c}!list\_destroy@{list\_destroy}}
+\index{list\_destroy@{list\_destroy}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_destroy()}{list\_destroy()}}
+{\footnotesize\ttfamily \label{list_8c_a1dc24d1b157b58dbe757afcb5bcc1991} 
+void list\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{list_8h_aa89b8bc105d9a09d4e7c06e8b34078a7}{List}} \texorpdfstring{$\ast$}{*}}]{lst}{}\end{DoxyParamCaption})}
+
+\Hypertarget{list_8c_a036e6dbe5c11813a27588c63fe5f4993}\index{list.c@{list.c}!list\_end@{list\_end}}
+\index{list\_end@{list\_end}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_end()}{list\_end()}}
+{\footnotesize\ttfamily \label{list_8c_a036e6dbe5c11813a27588c63fe5f4993} 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} list\+\_\+end (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{list_8h_aa89b8bc105d9a09d4e7c06e8b34078a7}{List}} \texorpdfstring{$\ast$}{*}}]{lst}{}\end{DoxyParamCaption})}
+
+\Hypertarget{list_8c_a3ae178d376dde7a3af32166272b0ed89}\index{list.c@{list.c}!list\_first@{list\_first}}
+\index{list\_first@{list\_first}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_first()}{list\_first()}}
+{\footnotesize\ttfamily \label{list_8c_a3ae178d376dde7a3af32166272b0ed89} 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} list\+\_\+first (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{list_8h_aa89b8bc105d9a09d4e7c06e8b34078a7}{List}} \texorpdfstring{$\ast$}{*}}]{lst}{}\end{DoxyParamCaption})}
+
+\Hypertarget{list_8c_ae700e4c3be5b5107302582ecaf432048}\index{list.c@{list.c}!list\_insert@{list\_insert}}
+\index{list\_insert@{list\_insert}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_insert()}{list\_insert()}}
+{\footnotesize\ttfamily \label{list_8c_ae700e4c3be5b5107302582ecaf432048} 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} list\+\_\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}}}]{pos}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{value}{}\end{DoxyParamCaption})}
+
+\Hypertarget{list_8c_aa804370c75e893d6477e92dd340950f2}\index{list.c@{list.c}!list\_inspect@{list\_inspect}}
+\index{list\_inspect@{list\_inspect}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_inspect()}{list\_inspect()}}
+{\footnotesize\ttfamily \label{list_8c_aa804370c75e893d6477e92dd340950f2} 
+const char \texorpdfstring{$\ast$}{*} list\+\_\+inspect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}}}]{pos}{}\end{DoxyParamCaption})}
+
+\Hypertarget{list_8c_acc4a08770f6d05193738220f017e3340}\index{list.c@{list.c}!list\_is\_empty@{list\_is\_empty}}
+\index{list\_is\_empty@{list\_is\_empty}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_is\_empty()}{list\_is\_empty()}}
+{\footnotesize\ttfamily \label{list_8c_acc4a08770f6d05193738220f017e3340} 
+bool list\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{list_8h_aa89b8bc105d9a09d4e7c06e8b34078a7}{List}} \texorpdfstring{$\ast$}{*}}]{lst}{}\end{DoxyParamCaption})}
+
+\Hypertarget{list_8c_a84c7aa01487b5bbfffe98ace96db33d5}\index{list.c@{list.c}!list\_next@{list\_next}}
+\index{list\_next@{list\_next}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_next()}{list\_next()}}
+{\footnotesize\ttfamily \label{list_8c_a84c7aa01487b5bbfffe98ace96db33d5} 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} list\+\_\+next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}}}]{pos}{}\end{DoxyParamCaption})}
+
+\Hypertarget{list_8c_ae95ac421290b72f4391632e074838b06}\index{list.c@{list.c}!list\_pos\_equal@{list\_pos\_equal}}
+\index{list\_pos\_equal@{list\_pos\_equal}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_pos\_equal()}{list\_pos\_equal()}}
+{\footnotesize\ttfamily \label{list_8c_ae95ac421290b72f4391632e074838b06} 
+bool list\+\_\+pos\+\_\+equal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}}}]{p1}{, }\item[{\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}}}]{p2}{}\end{DoxyParamCaption})}
+
+\Hypertarget{list_8c_afba334d3cb5b239cf649d321411a04fc}\index{list.c@{list.c}!list\_prev@{list\_prev}}
+\index{list\_prev@{list\_prev}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_prev()}{list\_prev()}}
+{\footnotesize\ttfamily \label{list_8c_afba334d3cb5b239cf649d321411a04fc} 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} list\+\_\+prev (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}}}]{pos}{}\end{DoxyParamCaption})}
+
+\Hypertarget{list_8c_a03b0695becb379c4ba22790271a6302b}\index{list.c@{list.c}!list\_remove@{list\_remove}}
+\index{list\_remove@{list\_remove}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_remove()}{list\_remove()}}
+{\footnotesize\ttfamily \label{list_8c_a03b0695becb379c4ba22790271a6302b} 
+\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}} list\+\_\+remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{list_8h_a24eff4060ed9e49865d714819e4de7fe}{List\+Pos}}}]{pos}{}\end{DoxyParamCaption})}
+

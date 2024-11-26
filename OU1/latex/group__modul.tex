@@ -1,0 +1,85 @@
+\doxysection{min\+Modul}
+\hypertarget{group__modul}{}\label{group__modul}\index{minModul@{minModul}}
+
+
+Deklarations for aaa.  
+
+
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structnode}{node}}
+\item 
+struct \mbox{\hyperlink{structlist}{list}}
+\item 
+struct \mbox{\hyperlink{structlist__pos}{list\+\_\+pos}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group__modul_gaa89b8bc105d9a09d4e7c06e8b34078a7}\label{group__modul_gaa89b8bc105d9a09d4e7c06e8b34078a7} 
+typedef struct \mbox{\hyperlink{structlist}{list}} {\bfseries List}
+\item 
+\Hypertarget{group__modul_ga24eff4060ed9e49865d714819e4de7fe}\label{group__modul_ga24eff4060ed9e49865d714819e4de7fe} 
+typedef struct \mbox{\hyperlink{structlist__pos}{list\+\_\+pos}} {\bfseries List\+Pos}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structlist}{List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__modul_ga8668cbe6c584fe11e610d2895f0f16c7}{list\+\_\+create}} (void)
+\begin{DoxyCompactList}\small\item\em Creates an empty list. \end{DoxyCompactList}\item 
+\Hypertarget{group__modul_ga1dc24d1b157b58dbe757afcb5bcc1991}\label{group__modul_ga1dc24d1b157b58dbe757afcb5bcc1991} 
+void {\bfseries list\+\_\+destroy} (\mbox{\hyperlink{structlist}{List}} \texorpdfstring{$\ast$}{*}lst)
+\item 
+\Hypertarget{group__modul_gacc4a08770f6d05193738220f017e3340}\label{group__modul_gacc4a08770f6d05193738220f017e3340} 
+bool {\bfseries list\+\_\+is\+\_\+empty} (const \mbox{\hyperlink{structlist}{List}} \texorpdfstring{$\ast$}{*}lst)
+\item 
+\Hypertarget{group__modul_ga3ae178d376dde7a3af32166272b0ed89}\label{group__modul_ga3ae178d376dde7a3af32166272b0ed89} 
+\mbox{\hyperlink{structlist__pos}{List\+Pos}} {\bfseries list\+\_\+first} (\mbox{\hyperlink{structlist}{List}} \texorpdfstring{$\ast$}{*}lst)
+\item 
+\Hypertarget{group__modul_ga036e6dbe5c11813a27588c63fe5f4993}\label{group__modul_ga036e6dbe5c11813a27588c63fe5f4993} 
+\mbox{\hyperlink{structlist__pos}{List\+Pos}} {\bfseries list\+\_\+end} (\mbox{\hyperlink{structlist}{List}} \texorpdfstring{$\ast$}{*}lst)
+\item 
+\Hypertarget{group__modul_gae95ac421290b72f4391632e074838b06}\label{group__modul_gae95ac421290b72f4391632e074838b06} 
+bool {\bfseries list\+\_\+pos\+\_\+equal} (\mbox{\hyperlink{structlist__pos}{List\+Pos}} p1, \mbox{\hyperlink{structlist__pos}{List\+Pos}} p2)
+\item 
+\Hypertarget{group__modul_ga84c7aa01487b5bbfffe98ace96db33d5}\label{group__modul_ga84c7aa01487b5bbfffe98ace96db33d5} 
+\mbox{\hyperlink{structlist__pos}{List\+Pos}} {\bfseries list\+\_\+next} (\mbox{\hyperlink{structlist__pos}{List\+Pos}} pos)
+\item 
+\Hypertarget{group__modul_gafba334d3cb5b239cf649d321411a04fc}\label{group__modul_gafba334d3cb5b239cf649d321411a04fc} 
+\mbox{\hyperlink{structlist__pos}{List\+Pos}} {\bfseries list\+\_\+prev} (\mbox{\hyperlink{structlist__pos}{List\+Pos}} pos)
+\item 
+\Hypertarget{group__modul_gae700e4c3be5b5107302582ecaf432048}\label{group__modul_gae700e4c3be5b5107302582ecaf432048} 
+\mbox{\hyperlink{structlist__pos}{List\+Pos}} {\bfseries list\+\_\+insert} (\mbox{\hyperlink{structlist__pos}{List\+Pos}} pos, const char \texorpdfstring{$\ast$}{*}value)
+\item 
+\Hypertarget{group__modul_ga03b0695becb379c4ba22790271a6302b}\label{group__modul_ga03b0695becb379c4ba22790271a6302b} 
+\mbox{\hyperlink{structlist__pos}{List\+Pos}} {\bfseries list\+\_\+remove} (\mbox{\hyperlink{structlist__pos}{List\+Pos}} pos)
+\item 
+\Hypertarget{group__modul_gaa804370c75e893d6477e92dd340950f2}\label{group__modul_gaa804370c75e893d6477e92dd340950f2} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries list\+\_\+inspect} (\mbox{\hyperlink{structlist__pos}{List\+Pos}} pos)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Deklarations for aaa. 
+
+This is the longer comment for This 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__modul_ga8668cbe6c584fe11e610d2895f0f16c7}\index{minModul@{minModul}!list\_create@{list\_create}}
+\index{list\_create@{list\_create}!minModul@{minModul}}
+\doxysubsubsection{\texorpdfstring{list\_create()}{list\_create()}}
+{\footnotesize\ttfamily \label{group__modul_ga8668cbe6c584fe11e610d2895f0f16c7} 
+\mbox{\hyperlink{structlist}{List}} \texorpdfstring{$\ast$}{*} list\+\_\+create (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Creates an empty list. 
+
+Creates an list with no node except the head and allocates memory for it.
+
+@params None.
+
+\begin{DoxyReturn}{Returns}
+The created list. 
+\end{DoxyReturn}

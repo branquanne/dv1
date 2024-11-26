@@ -1,0 +1,60 @@
+\doxysection{list.\+h}
+\hypertarget{list_8h_source}{}\label{list_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LIST\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LIST\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ The\ type\ for\ a\ node\ in\ the\ list.}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ *next;}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ *prev;}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{char}\ *value;}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ The\ type\ for\ a\ list.}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlist}{list}}\ \{}
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ head;}
+\DoxyCodeLine{00025\ \}\ \mbox{\hyperlink{structlist}{List}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ The\ type\ for\ a\ list\ position.}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlist__pos}{list\_pos}}\ \{}
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode}{node}}\ *\mbox{\hyperlink{structnode}{node}};}
+\DoxyCodeLine{00030\ \}\ \mbox{\hyperlink{structlist__pos}{ListPos}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Create\ and\ return\ an\ empty\ list.}}
+\DoxyCodeLine{00042\ \mbox{\hyperlink{structlist}{List}}\ *\mbox{\hyperlink{group__modul_ga8668cbe6c584fe11e610d2895f0f16c7}{list\_create}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ Deallocate\ the\ list\ (and\ all\ of\ its\ values,\ if\ any).}}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ list\_destroy(\mbox{\hyperlink{structlist}{List}}\ *lst);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ Check\ if\ the\ list\ is\ empty.}}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{bool}\ list\_is\_empty(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlist}{List}}\ *lst);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ Get\ the\ position\ of\ the\ first\ element.}}
+\DoxyCodeLine{00051\ \mbox{\hyperlink{structlist__pos}{ListPos}}\ list\_first(\mbox{\hyperlink{structlist}{List}}\ *lst);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ Get\ the\ position\ after(!)\ the\ last\ element.}}
+\DoxyCodeLine{00054\ \mbox{\hyperlink{structlist__pos}{ListPos}}\ list\_end(\mbox{\hyperlink{structlist}{List}}\ *lst);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ Check\ equality\ between\ two\ positions.}}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{bool}\ list\_pos\_equal(\mbox{\hyperlink{structlist__pos}{ListPos}}\ p1,\ \mbox{\hyperlink{structlist__pos}{ListPos}}\ p2);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ Forward\ to\ the\ next\ position.}}
+\DoxyCodeLine{00060\ \mbox{\hyperlink{structlist__pos}{ListPos}}\ list\_next(\mbox{\hyperlink{structlist__pos}{ListPos}}\ pos);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ Backward\ to\ the\ previous\ position.}}
+\DoxyCodeLine{00063\ \mbox{\hyperlink{structlist__pos}{ListPos}}\ list\_prev(\mbox{\hyperlink{structlist__pos}{ListPos}}\ pos);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ Insert\ the\ value\ before\ the\ position\ and\ return\ the\ position\ of\ the\ new}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ element.}}
+\DoxyCodeLine{00067\ \mbox{\hyperlink{structlist__pos}{ListPos}}\ list\_insert(\mbox{\hyperlink{structlist__pos}{ListPos}}\ pos,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{comment}{//\ Remove\ the\ value\ at\ the\ position\ and\ return\ the\ position\ of\ the\ next\ element.}}
+\DoxyCodeLine{00070\ \mbox{\hyperlink{structlist__pos}{ListPos}}\ list\_remove(\mbox{\hyperlink{structlist__pos}{ListPos}}\ pos);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ Get\ the\ value\ at\ the\ position.}}
+\DoxyCodeLine{00073\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *list\_inspect(\mbox{\hyperlink{structlist__pos}{ListPos}}\ pos);}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIST\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
