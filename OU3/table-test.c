@@ -1,9 +1,18 @@
 #include "table.h"
 #include <stdio.h>
 
-#define ANSI_COLOR_RED "\x1b[31m"
-#define ANSI_COLOR_GREEN "\x1b[32m"
-#define ANSI_COLOR_RESET "\x1b[0m"
+/* Description:   This test program inserts 30 key/value pairs into a table,
+ *                then verifies that the pairs are present. It also verifies
+ *                that the table does not contain any key/value pairs that were
+ *                not inserted.
+ *
+ *                The test program is successful if it prints "PASS" for both
+ *                tests. The test program is unsuccessful if it prints "FAIL"
+ *                for either test.
+ *
+ * Author:        Bran Quanne
+ * Date:          2024-11-27
+ */
 
 static void populate_table(Table *table) {
   for (int n = 51; n <= 60; n++) {
@@ -32,8 +41,7 @@ static bool verify_pairs(Table *table) {
     int value;
     int key = n;
     if (table_lookup(table, key, &value) && value == n * n) {
-      printf(ANSI_COLOR_GREEN "Key %d has value %d\n" ANSI_COLOR_RESET, key,
-             value);
+      printf("Key %d has value %d\n", key, value);
       count++;
     }
   }
@@ -49,7 +57,7 @@ static bool verify_nonpairs(Table *table) {
     int value = 0;
     int key = n;
     if (!table_lookup(table, key, &value)) {
-      printf(ANSI_COLOR_RED "Key %d has no value\n" ANSI_COLOR_RESET, key);
+      printf("Key %d has no value\n", key);
       count++;
     } else {
       printf("Key %d has value %d\n", key, value);
