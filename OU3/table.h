@@ -54,6 +54,7 @@ typedef struct table {
  * @note The function does not check if the memory allocation is successful nor
  * does it check for non-positive capacity and thus it may result in an
  * undefined behaviour.
+ *
  * @note User will have to manually call table_destroy() in order to free the
  * memory allocated for the table.
  */
@@ -69,13 +70,17 @@ Table *table_create(int capacity);
  * @return None.
  *
  * @see table_create()
+ *
+ * @note The function does not check if the table exists and thus it may result
+ * in an undefined behaviour.
  */
 void table_destroy(Table *tab);
 
 /**
  * @brief Lookup the value for a key.
  *
- * Lookup the value for a key and return false if the key is not found.
+ * Lookup the value for a key in a table and returns true if the key is found
+ * and false if the key is not found.
  *
  * @param tab A pointer to the table.
  *
@@ -85,8 +90,8 @@ void table_destroy(Table *tab);
  *
  * @return True if the key is found, false otherwise.
  *
- * @note The function does not check if the key is found nor does it check if
- * the pointer is empty and thus it may result in an undefined behaviour.
+ * @note The function does not check if the table exists and thus it may result
+ * in an undefined behaviour.
  */
 bool table_lookup(Table *tab, int key, int *value);
 
@@ -104,8 +109,8 @@ bool table_lookup(Table *tab, int key, int *value);
  *
  * @return None.
  *
- * @note The function does not check if the key exists nor does it check if the
- * memory allocation is successful.
+ * @note The function does not check if the table exists and thus it may result
+ * in an undefined behaviour.
  */
 void table_insert(Table *tab, int key, int value);
 /**
