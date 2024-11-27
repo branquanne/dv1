@@ -51,7 +51,9 @@ typedef struct table {
  *
  * @see table_destroy()
  *
- * @note The function does not check if the memory allocation is successful.
+ * @note The function does not check if the memory allocation is successful nor
+ * does it check for non-positive capacity and thus it may result in an
+ * undefined behaviour.
  * @note User will have to manually call table_destroy() in order to free the
  * memory allocated for the table.
  */
