@@ -90,6 +90,9 @@ void table_destroy(Table *tab);
  *
  * @return True if the key is found, false otherwise.
  *
+ * @note If the capcity of the table is equal to zero it will result in an
+ * undefined behaviour.
+ *
  * @note The function does not check if the table exists and thus it may result
  * in an undefined behaviour.
  */
@@ -108,6 +111,9 @@ bool table_lookup(Table *tab, int key, int *value);
  * @param value The value to insert.
  *
  * @return None.
+ *
+ * @note If the capacity of the table is equal to zero it will result in an
+ * undefined behaviour.
  *
  * @note The function does not check if the table exists and thus it may result
  * in an undefined behaviour.
