@@ -12,7 +12,7 @@
  * of buckets, where each bucket contains a key, a value.
  *
  * @author  Bran Quanne
- * @since    2024-11-27
+ * @since    2024-12-01
  * @{
  * */
 
