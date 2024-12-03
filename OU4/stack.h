@@ -3,6 +3,18 @@
 
 #include <stdbool.h>
 
+/**
+ * @defgroup stack stack
+ *
+ * A stack is a data structure that allows elements to be inserted and removed
+ * in a last-in-first-out (LIFO) order. This means that the last element that
+ * was inserted into the stack is the first one to be removed.
+ *
+ * @author Bran Mjöberg Quanne
+ * @since 2024-12-03
+ * @{
+ */
+
 // The type for a stack.
 typedef struct stack Stack;
 
