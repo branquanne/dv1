@@ -44,6 +44,8 @@ static bool verify_pairs(Table *table) {
     int key = n;
     if (table_lookup(table, key, &value) && value == n * n) {
       count++;
+    } else {
+      return false;
     }
   }
   if (count == 30) {
