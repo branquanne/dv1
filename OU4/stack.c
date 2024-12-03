@@ -24,7 +24,7 @@ void stack_destroy(Stack *s)
 
 void stack_push(Stack *s, double value)
 {
-    if (s->size == s->capacity) {
+    if (s->size >= s->capacity) {
         s->capacity *= 2;
         s->data = realloc(s->data, s->capacity * sizeof(double));
     }
