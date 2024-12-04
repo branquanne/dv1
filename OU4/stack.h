@@ -20,8 +20,6 @@
 /**
  * @brief The type for a stack.
  *
- * The type for a stack.
- *
  * @note The implementation of the stack is hidden from the user of the module and has to be
  * defined in the implementation file.
  */

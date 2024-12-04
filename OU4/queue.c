@@ -15,19 +15,28 @@
  * Date:        2024-12-03
  */
 
-struct queue {
-    List *list;
-};
+/* --- The following function is not declared in queue.h ---*/
 
+/*
+ * Description: Clones a string and allocates memory for the new string.
+ *
+ * Input:       A string.
+ *
+ * Output:      A pointer to a new string.
+ */
 static char *clone_string(const char *in)
 {
     size_t len = strlen(in);
     char *out = calloc(len + 1, sizeof(char));
-
     strncpy(out, in, len);
-
     return out;
 }
+
+/* --- The following functions are declared in queue.h --- */
+
+struct queue {
+    List *list;
+};
 
 Queue *queue_create(void)
 {

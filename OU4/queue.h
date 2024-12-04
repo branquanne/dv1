@@ -19,8 +19,6 @@
 /**
  * @brief The type for a queue.
  *
- * The type for a queue.
- *
  * @note The implementation of the queue is hidden from the user of the module and has to be
  * defined in the implementation file.
  */
@@ -56,8 +54,7 @@ void queue_destroy(Queue *q);
 /**
  * @brief Add a value to the tail of the queue.
  *
- * This function adds a value to the tail of the queue. The value is copied to
- * dynamically allocated memory.
+ * This function adds a value to the tail of the queue.
  *
  * @param q A pointer to the queue.
  * @param value The value to be added to the queue.
@@ -66,6 +63,7 @@ void queue_destroy(Queue *q);
  *
  * @note This function does not check if the memory allocation is successful and
  * thus it may result in an undefined behaviour.
+ * @note This function does not check if the value is a valid string and thus it may result in an undefined behaviour.
  *
  */
 void queue_enqueue(Queue *q, const char *value);
@@ -73,16 +71,13 @@ void queue_enqueue(Queue *q, const char *value);
 /**
  * @brief Remove the value at the head of the queue.
  *
- * This function removes the value at the head of the queue and returns a
- * pointer to the value. The caller is responsible for deallocating the returned
- * pointer.
+ * This function removes the value at the head of the queue.
  *
  * @param q A pointer to the queue.
  *
  * @return A pointer to the value at the head of the queue.
  *
- * @note This function does not check if the queue is empty and thus it may result
- * in an undefined behaviour.
+ * @note This function does not check if the queue is empty and thus it may result in an undefined behaviour.
  */
 char *queue_dequeue(Queue *q);
 
