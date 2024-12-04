@@ -3,6 +3,18 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
+ * File :       queue.c
+ *
+ * Description: This file contains the implementation of the queue module.
+ *              The queue is a data structure that allows elements to be inserted and removed in a first-in-first-out (FIFO) order.
+ *              This means that the first element that was inserted into the queue is the first one to be removed.
+ *
+ * Author:      Bran Mjöberg Quanne
+ *
+ * Date:        2024-12-03
+ */
+
 struct queue {
     List *list;
 };

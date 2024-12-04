@@ -1,4 +1,3 @@
-
 #ifndef LIST_H
 #define LIST_H
 
@@ -23,9 +22,9 @@
  *
  */
 struct node {
-  struct node *next; /**< A pointer to the next node in the list. */
-  struct node *prev; /**< A pointer to the previous value in the list. */
-  char *value;       /**< The value contained within the node */
+    struct node *next; /**< A pointer to the next node in the list. */
+    struct node *prev; /**< A pointer to the previous value in the list. */
+    char *value;       /**< The value contained within the node */
 };
 
 /**
@@ -33,7 +32,7 @@ struct node {
  *
  */
 typedef struct list {
-  struct node head; /**< A pointer to the head of the list. */
+    struct node head; /**< A pointer to the head of the list. */
 } List;
 
 /**
@@ -41,7 +40,7 @@ typedef struct list {
  *
  */
 typedef struct list_pos {
-  struct node *node; /**< A pointer to the node in the list. */
+    struct node *node; /**< A pointer to the node in the list. */
 } ListPos;
 
 /**
