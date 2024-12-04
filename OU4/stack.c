@@ -62,6 +62,7 @@ double stack_pop(Stack *s)
     return s->data[--s->size];
 }
 
+// Check if the stack is empty.
 bool stack_is_empty(const Stack *s)
 {
     if (s->size == 0) {
