@@ -1,7 +1,8 @@
 #include "table.h"
 #include <stdio.h>
 
-/* Description:   This test program inserts 30 key/value pairs into a table,
+/*
+ * Description:   This test program inserts 30 key/value pairs into a table,
  *                then verifies that the pairs are present. It also verifies
  *                that the table does not contain any key/value pairs that were
  *                not inserted.
@@ -17,72 +18,95 @@
 
 /* --- The following functions are not declared in table.h ---*/
 
-static void populate_table(Table *table) {
-  for (int n = 51; n <= 60; n++) {
-    table_insert(table, n, -n);
-  }
+static void populate_table(Table *table)
+{
+    for (int n = 51; n <= 60; n++) {
+        table_insert(table, n, -n);
+    }
 
-  for (int n = 141; n <= 160; n++) {
-    table_insert(table, n, n * n);
-  }
+    for (int n = 141; n <= 160; n++) {
+        table_insert(table, n, n * n);
+    }
 }
 
-static bool verify_pairs(Table *table) {
-  int count = 0;
-  for (int n = 51; n <= 60; n++) {
-    int value;
-    int key = n;
-    if (table_lookup(table, key, &value) && value == -n) {
-      count++;
-    } else {
-      return false;
+static bool verify_pairs(Table *table)
+{
+    for (int n = 51; n <= 60; n++) {
+        int value;
+        int key = n;
+        if (!table_lookup(table, key, &value) || (value != -n)) {
+            return false;
+        }
     }
-  }
 
-  for (int n = 141; n <= 160; n++) {
-    int value;
-    int key = n;
-    if (table_lookup(table, key, &value) && value == n * n) {
-      count++;
-    } else {
-      return false;
+    for (int n = 141; n <= 160; n++) {
+        int value;
+        int key = n;
+        if (!table_lookup(table, key, &value) || (value != n * n)) {
+            return false;
+        }
     }
-  }
-  if (count == 30) {
     return true;
-  }
-  return false;
 }
 
-static bool verify_nonpairs(Table *table) {
-  int count = 0;
-  for (int n = 1; n <= 200; n++) {
-    int value = 0;
-    int key = n;
-    if (!table_lookup(table, key, &value)) {
-      count++;
+static bool verify_nonpairs(Table *table)
+{
+    for (int n = 1; n <= 200; n++) {
+        int value = 0;
+        int key = n;
+
+        if (n >= 51 && n <= 60) {
+            if (!table_lookup(table, key, &value) || value != -n) {
+                return false;
+            }
+        }
+
+        else if (n >= 141 && n <= 160) {
+            if (!table_lookup(table, key, &value) || value != n * n) {
+                return false;
+            }
+        }
+
+        else if (table_lookup(table, key, &value)) {
+            return false;
+        }
     }
-  }
-  if (count == 170) {
     return true;
-  }
-  return false;
+
+    /*for (int n = 1; n <= 200; n++) {
+        int value = 0;
+        int key = n;
+
+        if ((n >= 51 && n <= 60) && (!table_lookup(table, key, &value) && value != -n)) {
+
+            return false;
+        }
+
+        else if ((n >= 141 && n <= 160) && (!table_lookup(table, key, &value) && value != n * n)) {
+
+            return false;
+        }
+
+        else if (table_lookup(table, key, &value)) {
+            return false;
+        }
+    }
+    return true;*/
 }
 
-int main(void) {
-  Table *tab = table_create(100);
+int main(void)
+{
+    Table *tab = table_create(100);
 
-  populate_table(tab);
+    populate_table(tab);
 
-  bool pairs_are_correct = verify_pairs(tab);
-  bool table_is_correct = verify_nonpairs(tab);
+    bool pairs_are_correct = verify_pairs(tab);
+    bool table_is_correct = verify_nonpairs(tab);
 
-  printf("Test the presence of added key/value pairs ... %s\n",
-         pairs_are_correct ? "PASS" : "FAIL");
-  printf("Test the presence of non-added keys ... %s\n",
-         table_is_correct ? "PASS" : "FAIL");
+    printf("Test the presence of added key/value pairs ... %s\n", pairs_are_correct ? "PASS" : "FAIL");
+    printf("Test the presence of non-added keys ... %s\n", table_is_correct ? "PASS" : "FAIL");
 
-  table_destroy(tab);
+    table_destroy(tab);
 
-  return 0;
+    return 0;
 }
