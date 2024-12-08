@@ -14,19 +14,12 @@
  *
  * Author:      Bran Mjöberg Quanne
  *
- * Date:        2024-12-03
+ * Date:        2024-12-08
  */
-
-// Define the stack structure.
-struct stack {
-    int capacity;
-    int size;
-    double *data;
-};
 
 int main(void)
 { // Create an empty stack.
-    struct stack *s = stack_create();
+    Stack *s = stack_create();
 
     // Push the values 0.5, 0.25, ..., 0.0009765625 onto the stack.
     bool ok = true;
@@ -36,10 +29,10 @@ int main(void)
 
     // Pop and verify the values in the stack.
     for (int i = 9; i >= 0; i--) {
-        stack_pop(s);
+        double value = stack_pop(s);
 
         // Verify that the value is correct.
-        if (s->data[s->size] != pow(0.5, i + 1)) {
+        if (value != pow(0.5, i + 1)) {
             ok = false;
         }
     }

@@ -6,22 +6,22 @@
 /**
  * @defgroup stack_h STACK_H
  *
- * @brief The Stack module is a simple stack implementation.
+ * @brief The Stack module is a stack implementation.
  *
  * A stack is a data structure that allows elements to be inserted and removed
  * in a last-in-first-out (LIFO) order. This means that the last element that
  * was inserted into the stack is the first one to be removed.
  *
  * @author Bran Mjöberg Quanne
- * @since 2024-12-03
+ * @since 2024-12-08
  * @{
  */
 
 /**
  * @brief The type for a stack.
  *
- * @note The implementation of the stack is hidden from the user of the module and has to be
- * defined in the implementation file.
+ * @note The implementation of the stack is hidden from the user of the module
+ * and has to be defined in the implementation file.
  */
 typedef struct stack Stack;
 
@@ -34,9 +34,14 @@ typedef struct stack Stack;
  *
  * @return A pointer to the newly created stack.
  *
- * @note The caller is responsible for deallocating the memory used by the stack. This can be done using stack_destroy().
- * @note The function does not check if the memory allocation is successful and thus it may result in an undefined behaviour.
+ * @note The caller is responsible for deallocating the memory used by the
+ * stack. This can be done using stack_destroy().
+ * @note The function does not check if the memory allocation is successful and
+ * thus it may result in an undefined behaviour.
+ *
+ * @see stack_destroy()
  */
+
 Stack *stack_create(void);
 
 /**
@@ -48,7 +53,10 @@ Stack *stack_create(void);
  *
  * @return None.
  *
- * @note The function does not check if the stack exists and thus it may result in an undefined behaviour.
+ * @note The function does not check if the stack exists and thus it may result
+ * in an undefined behaviour.
+ *
+ * @see stack_create()
  */
 void stack_destroy(Stack *s);
 
@@ -62,10 +70,14 @@ void stack_destroy(Stack *s);
  *
  * @return None.
  *
- * @note The function does not check if the stack exists and thus it may result in an undefined behaviour.
- * @note The function does not check if the memory reallocation is successful and thus it may result in an undefined behaviour.
- * @note The function does not check if the value is a valid number and thus it may result in an undefined behaviour.
+ * @note The function does not check if the stack exists and thus it may result
+ * in an undefined behaviour.
+ * @note The function does not check if the memory reallocation is successful
+ * and thus it may result in an undefined behaviour.
+ * @note The function does not check if the value is a valid number and thus it
+ * may result in an undefined behaviour.
  *
+ * @see stack_pop()
  */
 void stack_push(Stack *s, double value);
 
@@ -78,8 +90,12 @@ void stack_push(Stack *s, double value);
  *
  * @return The value at the top of the stack.
  *
- * @note The function does not check if the stack exists and thus it may result in an undefined behaviour.
- * @note The function does not check if the stack is empty and thus it may result in an undefined behaviour.
+ * @note The function does not check if the stack exists and thus it may result
+ * in an undefined behaviour.
+ * @note The function does not check if the stack is empty and thus it may
+ * result in an undefined behaviour.
+ *
+ * @see stack_push()
  */
 double stack_pop(Stack *s);
 
@@ -92,7 +108,8 @@ double stack_pop(Stack *s);
  *
  * @return True if the stack is empty, otherwise false.
  *
- * @note The function does not check if the stack exists and thus it may result in an undefined behaviour.
+ * @note The function does not check if the stack exists and thus it may result
+ * in an undefined behaviour.
  */
 bool stack_is_empty(const Stack *s);
 

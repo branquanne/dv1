@@ -12,7 +12,7 @@
  *
  * Author:      Bran Mjöberg Quanne
  *
- * Date:        2024-12-03
+ * Date:        2024-12-08
  */
 
 /* --- The following function is not declared in queue.h ---*/
@@ -34,6 +34,9 @@ static char *clone_string(const char *in)
 
 /* --- The following functions are declared in queue.h --- */
 
+/*
+ * Description: The structure used to represent a queue. The queue is implemented using a list.
+ */
 struct queue {
     List *list;
 };

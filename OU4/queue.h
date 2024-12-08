@@ -5,14 +5,14 @@
 /**
  * @defgroup queue_h QUEUE_H
  *
- * @brief The Queue module is a simple queue implementation.
+ * @brief The Queue module is a queue implementation.
  *
  * The queue is a data structure that allows elements to be inserted and removed in a first-in-first-out
  * (FIFO) order. This means that the first element that was inserted into the queue
  * is the first one to be removed.
  *
  * @author Bran Mjöberg Quanne
- * @since 2024-12-03
+ * @since 2024-12-08
  * @{
  */
 
@@ -35,6 +35,8 @@ typedef struct queue Queue;
  *
  * @note The caller is responsible for deallocating the memory used by the queue. This can be done using queue_destroy().
  * @note The function does not check if the memory allocation is successful and thus it may result in an undefined behaviour.
+ *
+ * @see queue_destroy()
  */
 Queue *queue_create(void);
 
@@ -48,6 +50,8 @@ Queue *queue_create(void);
  * @return None.
  *
  * @note The function does not check if the queue exists and thus it may result in an undefined behaviour.
+ *
+ * @see queue_create()
  */
 void queue_destroy(Queue *q);
 
@@ -65,6 +69,7 @@ void queue_destroy(Queue *q);
  * thus it may result in an undefined behaviour.
  * @note This function does not check if the value is a valid string and thus it may result in an undefined behaviour.
  *
+ * @see queue_dequeue()
  */
 void queue_enqueue(Queue *q, const char *value);
 
@@ -78,6 +83,8 @@ void queue_enqueue(Queue *q, const char *value);
  * @return A pointer to the value at the head of the queue.
  *
  * @note This function does not check if the queue is empty and thus it may result in an undefined behaviour.
+ *
+ * @see queue_enqueue()
  */
 char *queue_dequeue(Queue *q);
 

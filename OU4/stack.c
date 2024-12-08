@@ -10,7 +10,7 @@
  *
  * Author:      Bran Mjöberg Quanne
  *
- * Date:        2024-12-03
+ * Date:        2024-12-08
  */
 
 /* --- The following functions are declared in stack.h --- */
