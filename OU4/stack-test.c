@@ -10,7 +10,9 @@
  *              The program then pops these values from the stack and verifies that they are the correct values.
  *              The program then checks if the stack is empty and prints the result.
  *
- *             The program is will print "PASS" if both tests are passed and "FAIL" if either one failed.
+ *              The program is will print "PASS" if both tests are passed and "FAIL" if either one failed.
+ *
+ * Note:        If you are compiling on linux: remember to add the flag "-lm" when compiling.
  *
  * Author:      Bran Mjöberg Quanne
  *

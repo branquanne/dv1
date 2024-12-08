@@ -2,7 +2,6 @@
 #define STACK_H
 
 #include <stdbool.h>
-
 /**
  * @defgroup stack_h STACK_H
  *
