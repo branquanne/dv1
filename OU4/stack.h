@@ -12,6 +12,7 @@
  * was inserted into the stack is the first one to be removed.
  *
  * @author Bran Mjöberg Quanne
+ *
  * @since 2024-12-08
  * @{
  */
@@ -112,4 +113,7 @@ double stack_pop(Stack *s);
  */
 bool stack_is_empty(const Stack *s);
 
+/**
+ * @}
+ */
 #endif /* STACK_H */

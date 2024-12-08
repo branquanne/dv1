@@ -12,6 +12,7 @@
  * is the first one to be removed.
  *
  * @author Bran Mjöberg Quanne
+ *
  * @since 2024-12-08
  * @{
  */

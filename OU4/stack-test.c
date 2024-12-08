@@ -8,11 +8,11 @@
  * Description: This file contains a test program for the stack module.
  *              The test program creates a stack and pushes 10 unique values onto the stack.
  *              The program then pops these values from the stack and verifies that they are the correct values.
- *              The program then checks if the stack is empty and prints the result.
+ *              The program then checks if the stack is empty.
  *
  *              The program is will print "PASS" if both tests are passed and "FAIL" if either one failed.
  *
- * Note:        If you are compiling on linux: remember to add the flag "-lm" when compiling.
+ * Note:        If you are compiling on Linux: remember to add the flag "-lm" when compiling.
  *
  * Author:      Bran Mjöberg Quanne
  *
