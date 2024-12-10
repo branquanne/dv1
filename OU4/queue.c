@@ -50,13 +50,18 @@ Queue *queue_create(void)
 
 void queue_destroy(Queue *q)
 {
+    while (!list_is_empty(q->list)) {
+        char *value = queue_dequeue(q);
+        free(value);
+    }
     list_destroy(q->list);
     free(q);
 }
 
 void queue_enqueue(Queue *q, const char *value)
 {
-    list_insert(list_end(q->list), clone_string(value));
+    char *new_value = clone_string(value);
+    list_insert(list_end(q->list), new_value);
 }
 
 char *queue_dequeue(Queue *q)
