@@ -10,11 +10,11 @@ void insert_value(int value, BSTreePos first_pos);
 BSTreePos search_value(int value, BSTreePos first_pos);
 
 // Assuming the structure is defined in bs_tree.h, include the definition here.
-typedef struct node {
+struct node {
     int value;
     struct node *left;
     struct node *right;
-} node;
+};
 
 int main(void)
 {
