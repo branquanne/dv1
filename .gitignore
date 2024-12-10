@@ -2,3 +2,12 @@
 doc/
 html/
 latex/
+bs_tree-test
+Doxyfile
+queue-test
+stack-test
+main
+table-test
+test
+time_test
+array
