@@ -95,7 +95,6 @@ void swap(int *a, int *b)
 // Insert a value in the tree.
 void insert_value(int value, BSTreePos first_pos)
 {
-
     BSTreePos pos = first_pos;
     while (true) {
         if (value < pos->value) {
