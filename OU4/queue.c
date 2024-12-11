@@ -60,8 +60,7 @@ void queue_destroy(Queue *q)
 
 void queue_enqueue(Queue *q, const char *value)
 {
-    char *new_value = clone_string(value);
-    list_insert(list_end(q->list), new_value);
+    list_insert(list_end(q->list), value);
 }
 
 char *queue_dequeue(Queue *q)
