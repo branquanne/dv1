@@ -8,13 +8,6 @@
 
 #include "bs_tree.h"
 
-// Assuming the structure is defined in bs_tree.h, include the definition here.
-struct node {
-    int value;
-    struct node *left;
-    struct node *right;
-};
-
 // Declarations of functions.
 static double get_time(void);
 void swap(int *a, int *b);
