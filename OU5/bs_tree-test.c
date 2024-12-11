@@ -9,13 +9,6 @@ void swap(int *a, int *b);
 void insert_value(int value, BSTreePos first_pos);
 BSTreePos search_value(int value, BSTreePos first_pos);
 
-// Assuming the structure is defined in bs_tree.h, include the definition here.
-struct node {
-    int value;
-    struct node *left;
-    struct node *right;
-};
-
 int main(void)
 {
     // Create an array with the values 1, 2, ..., 10 and print out the content.
@@ -95,23 +88,22 @@ void swap(int *a, int *b)
 // Insert a value in the tree.
 void insert_value(int value, BSTreePos first_pos)
 {
-    BSTreePos pos = first_pos;
     while (true) {
-        if (value < pos->value) {
-            if (bs_tree_has_left_child(pos)) {
-                pos = bs_tree_left_child(pos);
+        if (value < bs_tree_inspect_label(first_pos)) {
+            if (bs_tree_has_left_child(first_pos)) {
+                first_pos = bs_tree_left_child(first_pos);
             }
             else {
-                pos = bs_tree_insert_left(value, pos);
+                first_pos = bs_tree_insert_left(value, first_pos);
                 break;
             }
         }
         else {
-            if (bs_tree_has_right_child(pos)) {
-                pos = bs_tree_right_child(pos);
+            if (bs_tree_has_right_child(first_pos)) {
+                first_pos = bs_tree_right_child(first_pos);
             }
             else {
-                pos = bs_tree_insert_right(value, pos);
+                first_pos = bs_tree_insert_right(value, first_pos);
                 break;
             }
         }
@@ -121,16 +113,15 @@ void insert_value(int value, BSTreePos first_pos)
 // Search for a value in the tree.
 BSTreePos search_value(int value, BSTreePos first_pos)
 {
-    BSTreePos pos = first_pos;
-    while (pos != NULL) {
-        if (value == pos->value) {
-            return pos;
+    while (first_pos != NULL) {
+        if (value == bs_tree_inspect_label(first_pos)) {
+            return first_pos;
         }
-        else if (value < pos->value) {
-            pos = bs_tree_left_child(pos);
+        else if (value < bs_tree_inspect_label(first_pos)) {
+            first_pos = bs_tree_left_child(first_pos);
         }
         else {
-            pos = bs_tree_right_child(pos);
+            first_pos = bs_tree_right_child(first_pos);
         }
     }
     return NULL;
