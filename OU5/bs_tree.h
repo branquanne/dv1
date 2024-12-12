@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 /**
- * @file bs_tree.h
+ * @defgroup bs_tree_h BS_TREE_H
  *
  * @brief The interface for the binary search tree.
  *
@@ -19,7 +19,7 @@
 /**
  * @brief The type for the binary search tree.
  *
- * The implementation of the binare search tree is hidden from the user.
+ * The implementation of the binary search tree is hidden from the user.
  * The user has to define the tree in the implementation files.
  */
 typedef struct node BSTree;
@@ -43,7 +43,8 @@ typedef struct node *BSTreePos;
  *
  * @note The function allocates memory for the binary search tree. The user is
  * responsible for deallocating the memory by calling bs_tree_destroy().
- *
+ * 
+ * @see bs_tree_destroy().
  */
 BSTree *bs_tree_make(int value);
 
@@ -55,10 +56,13 @@ BSTree *bs_tree_make(int value);
  *
  * @param value The value to store in the node.
  * @param pos The position of the node to insert the new node as the left child.
+ * 
  * @return The position of the new node.
  *
  * @note The function allocates memory for the new node. The user is responsible
  * for deallocating the memory by calling bs_tree_destroy().
+ * 
+ * @see bs_tree_insert_right()
  */
 BSTreePos bs_tree_insert_left(int value, BSTreePos pos);
 
@@ -70,10 +74,13 @@ BSTreePos bs_tree_insert_left(int value, BSTreePos pos);
  *
  * @param value The value to store in the node.
  * @param pos The position of the node to insert the new node as the right child.
+ * 
  * @return The position of the new node.
  *
  * @note The function allocates memory for the new node. The user is responsible
  * for deallocating the memory by calling bs_tree_destroy().
+ * 
+ * @see bs_tree_insert_left()
  */
 BSTreePos bs_tree_insert_right(int value, BSTreePos pos);
 
@@ -83,6 +90,7 @@ BSTreePos bs_tree_insert_right(int value, BSTreePos pos);
  * The function returns the value at the position pos.
  *
  * @param pos The position of the node.
+ * 
  * @return The value at the position.
  *
  * @note The function does not check if the position is NULL.
@@ -95,6 +103,7 @@ int bs_tree_inspect_label(BSTreePos pos);
  * The function checks if the node at the position pos has a left child.
  *
  * @param pos The position of the node.
+ * 
  * @return True if the node has a left child, otherwise false.
  *
  * @see bs_tree_has_right_child()
@@ -107,6 +116,7 @@ bool bs_tree_has_left_child(BSTreePos pos);
  * The function checks if the node at the position pos has a right child.
  *
  * @param pos The position of the node.
+ * 
  * @return True if the node has a right child, otherwise false.
  *
  * @see bs_tree_has_left_child()
@@ -119,6 +129,7 @@ bool bs_tree_has_right_child(BSTreePos pos);
  * The function returns the position of the root in the binary search tree.
  *
  * @param tree The binary search tree.
+ * 
  * @return The position of the root.
  *
  *
@@ -132,7 +143,10 @@ BSTreePos bs_tree_root(BSTree *tree);
  * pos.
  *
  * @param pos The position of the node.
+ * 
  * @return The position of the left child.
+ * 
+ * @see bs_tree_right_child()
  */
 BSTreePos bs_tree_left_child(BSTreePos pos);
 
@@ -143,7 +157,10 @@ BSTreePos bs_tree_left_child(BSTreePos pos);
  * pos.
  *
  * @param pos The position of the node.
+ * 
  * @return The position of the right child.
+ * 
+ * @see bs_tree_left_child()
  */
 BSTreePos bs_tree_right_child(BSTreePos pos);
 
@@ -153,6 +170,8 @@ BSTreePos bs_tree_right_child(BSTreePos pos);
  * The function deallocates the entire binary search tree.
  *
  * @param tree The binary search tree.
+ * 
+ * @see bs_tree_create()
  */
 void bs_tree_destroy(BSTree *tree);
 /**

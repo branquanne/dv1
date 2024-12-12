@@ -85,7 +85,14 @@ void swap(int *a, int *b)
     *b = temp;
 }
 
-// Insert a value in the tree.
+/*
+* Description: Insert a value in the search tree.
+*
+* Input:       value - The value to insert.
+*              first_pos - The position of the first node.
+* 
+* Output:      The position of the new node.
+*/
 void insert_value(int value, BSTreePos first_pos)
 {
     while (true) {
@@ -110,7 +117,14 @@ void insert_value(int value, BSTreePos first_pos)
     }
 }
 
-// Search for a value in the tree.
+/*
+* Description: Search for a specified value in the search tree.
+* 
+* Input:       value - The value to search for.
+*              first_pos - The position of the first node.
+*
+* Output:      The position of the node with the specified value.
+*/
 BSTreePos search_value(int value, BSTreePos first_pos)
 {
     while (first_pos != NULL) {
