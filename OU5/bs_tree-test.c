@@ -3,6 +3,17 @@
 #include <stdlib.h>
 #include <time.h>
 
+/* 
+* File:         bs_tree-test.c
+*
+* Description:  A program that creates a binary search tree and inserts values in the tree. 
+*               The program then searches for the values in the tree.
+* 
+* Author:       Bran Mjöberg Quanne
+*   
+* Date:        2024-12-13
+*/
+
 // Declarations of functions.
 void print_array(int n, int a[]);
 void swap(int *a, int *b);
@@ -84,6 +95,8 @@ void swap(int *a, int *b)
     *a = *b;
     *b = temp;
 }
+
+/* The following functions were implemented by Bran Mjöberg Quanne */ 
 
 /*
 * Description: Insert a value in the search tree.

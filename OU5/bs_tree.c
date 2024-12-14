@@ -1,7 +1,22 @@
 #include "bs_tree.h"
 #include <stdlib.h>
 
-// The type for the tree.
+/*
+* File:         bs_tree.c
+*
+* Description:  A binary search tree is a data structure that is used to store
+*               values in a sorted order. The binary search tree is a tree where each node
+*               has at most two children. The left child of a node contains a value that is
+*               less than the value in the node, and the right child contains a value that is
+*               greater than the value in the node. This file contains the implementation of
+*               the binary search tree.
+*
+* Author:       Bran Mjöberg Quanne
+*
+* Date:        2024-12-13
+*/
+
+/* The structure for the binary search tree where each node consists of a value and pointers to its children. */
 struct node {
     int value;
     struct node *left_child;

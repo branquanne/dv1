@@ -7,13 +7,13 @@
  *
  * @brief The interface for the binary search tree.
  *
- * The interface defines the functions to work with a binary search tree. The
+ * The interface declares the functions to work with a binary search tree. The
  * binary search tree is a binary tree where the left child is less than the
  * parent and the right child is greater than the parent.
  *
  * @author Bran Mjöberg Quanne
  *
- * @since 2024-12-10
+ * @since 2024-12-13
  */
 
 /**
@@ -49,7 +49,7 @@ typedef struct node *BSTreePos;
 BSTree *bs_tree_make(int value);
 
 /**
- * @brief Insert a node with as the left child to a node.
+ * @brief Insert a node as the left child to a node.
  *
  * The function inserts a node with a value as the left child to the node with
  * position pos.
