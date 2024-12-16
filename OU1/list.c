@@ -6,7 +6,7 @@
  * Description:   This file handles the definitions of the functions used to create, manipulate and destroy a list.
  *
  * Author:        Bran Mjöberg Quanne
- * Date:          2024-11-15
+ * Date:          2024-12-16
  */
 
 /*

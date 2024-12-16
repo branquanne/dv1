@@ -12,7 +12,7 @@
  * list.c and main.c.
  *
  * @author Bran Mjöberg Quanne
- * @since 2024-11-15
+ * @since 2024-12-16
  * @{
  *
  */
@@ -95,7 +95,7 @@ bool list_is_empty(const List *lst);
  *
  * @see list_end().
  *
- * @note Usage may result in undefined behavior if the list is not initialized and if the list is empty.
+ * @note Usage may result in undefined behavior if the list is not initialized or if the list is empty.
  */
 ListPos list_first(List *lst);
 
@@ -110,7 +110,7 @@ ListPos list_first(List *lst);
  *
  * @see list_first().
  *
- * @note Usage may result in undefined behavior if the list is not initialized and if the list is empty.
+ * @note Usage may result in undefined behavior if the list is not initialized or if the list is empty.
  */
 ListPos list_end(List *lst);
 
@@ -124,20 +124,20 @@ ListPos list_end(List *lst);
  *
  * @return True if the positions are equal and false if they aren´t.
  *
- * @note Usage may result in undefined behavior if the list is not initialized and if the list is empty.
+ * @note Usage may result in undefined behavior if the list is not initialized or if the list is empty.
  */
 bool list_pos_equal(ListPos p1, ListPos p2);
 
 /**
  * @brief Moves to the next position.
  *
- * Moves to the next position by returning the next node of the current node.
+ * Gets a position and moves to the next position in the list.
  *
  * @param pos A position.
  *
  * @return The next position.
  *
- * @note Usage may result in undefined behavior if the list is not initialized and if the position is the last element.
+ * @note Usage may result in undefined behavior if the list is not initialized or if the position is the last element.
  */
 ListPos list_next(ListPos pos);
 
@@ -150,7 +150,7 @@ ListPos list_next(ListPos pos);
  *
  * @return The previous position.
  *
- * @note Usage may result in undefined behavior if the list is not initialized and if the position is the first element.
+ * @note Usage may result in undefined behavior if the list is not initialized or if the position is the first element.
  */
 ListPos list_prev(ListPos pos);
 
@@ -181,7 +181,7 @@ ListPos list_insert(ListPos pos, const char *value);
  *
  * @see list_insert().
  *
- * @note Usage may result in undefined behavior if the list is not initialized and if the list is empty.
+ * @note Usage may result in undefined behavior if the list is not initialized or if the list is empty.
  */
 ListPos list_remove(ListPos pos);
 
@@ -194,7 +194,7 @@ ListPos list_remove(ListPos pos);
  *
  * @return The value at the position.
  *
- * @note Usage may result in undefined behavior if the list is not initialized and if the list is empty.
+ * @note Usage may result in undefined behavior if the list is not initialized or if the list is empty.
  */
 const char *list_inspect(ListPos pos);
 /**

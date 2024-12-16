@@ -1,10 +1,11 @@
 #include "array.h"
 #include <stdlib.h>
 /*
- * Description:   This file handles the definitions of the functions used to create, manipulate and destroy a 2D array represented as a 1D array.
+ * Description:   This file handles the definitions of the functions used to create, manipulate
+ *                and destroy a 2D array represented as a 1D array.
  *
  * Author:        Bran Mjöberg Quanne
- * Date:          2024-11-26
+ * Date:          2024-12-16
 
 /* --- The following functions are declared in array.h --- */
 
