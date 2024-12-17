@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include "set.h"
+#include <stdlib.h>
 
 struct set {
     int capacity;
@@ -7,24 +7,21 @@ struct set {
     char *array;
 };
 
-
 set *set_empty()
 {
-	set *s = malloc(sizeof(set));
-	s->capacity = 0;
-	s->size = 0;
-	s->array = NULL;
-	return s;
+    set *s = malloc(sizeof(set));
+    s->capacity = 0;
+    s->size = 0;
+    s->array = NULL;
+    return s;
 }
-
 
 set *set_single(const int value)
 {
-	set *s = set_empty();
-	set_insert(value, s);
-	return s;
+    set *s = set_empty();
+    set_insert(value, s);
+    return s;
 }
-
 
 void set_insert(const int value, set *s)
 {
@@ -35,7 +32,7 @@ void set_insert(const int value, set *s)
         if (bit_in_array >= s->capacity) {
             int no_of_bytes = bit_in_array / 8 + 1;
             s->array = realloc(s->array, no_of_bytes);
-            for (int i = s->capacity / 8 ; i < no_of_bytes ; i++) {
+            for (int i = s->capacity / 8; i < no_of_bytes; i++) {
                 s->array[i] = 0;
             }
             s->capacity = no_of_bytes * 8;
@@ -44,11 +41,10 @@ void set_insert(const int value, set *s)
         // Set the bit
         int byte_no = bit_in_array / 8;
         int bit = 7 - bit_in_array % 8;
-        s->array[byte_no] = s->array[byte_no] | 1 << bit;
+        s->array[byte_no] = s->array[byte_no] | 1 << bit; // If it already exists, no need to add bitshift
         s->size++;
     }
 }
-
 
 // Note: More effective implementations are possible, but this is
 // okay for this assignment.
@@ -56,7 +52,7 @@ set *set_union(const set *const s1, const set *const s2)
 {
     set *s = set_empty();
 
-    for (int i = 0 ; i < s1->capacity || i < s2->capacity ; i++) {
+    for (int i = 0; i < s1->capacity || i < s2->capacity; i++) {
         if (set_member_of(i, s1) || set_member_of(i, s2)) {
             set_insert(i, s);
         }
@@ -65,40 +61,36 @@ set *set_union(const set *const s1, const set *const s2)
     return s;
 }
 
-
 set *set_intersection(const set *const s1, const set *const s2)
 {
-	set *s = set_empty();
+    set *s = set_empty();
 
-	for (int i = 0 ; i < s1->capacity && i < s2->capacity ; i++) {
-		if (set_member_of(i, s1) && set_member_of(i, s2)) {
-			set_insert(i, s);
-		}
-	}
+    for (int i = 0; i < s1->capacity && i < s2->capacity; i++) {
+        if (set_member_of(i, s1) && set_member_of(i, s2)) {
+            set_insert(i, s);
+        }
+    }
 
-	return s;
+    return s;
 }
-
 
 set *set_difference(const set *const s1, const set *const s2)
 {
-	set *s = set_empty();
+    set *s = set_empty();
 
-	for (int i = 0 ; i < s1->capacity ; i++) {
-		if (set_member_of(i, s1) && !set_member_of(i, s2)) {
-			set_insert(i, s);
-		}
-	}
+    for (int i = 0; i < s1->capacity; i++) {
+        if (set_member_of(i, s1) && !set_member_of(i, s2)) {
+            set_insert(i, s);
+        }
+    }
 
-	return s;
+    return s;
 }
-
 
 bool set_is_empty(const set *const s)
 {
-	return s->size == 0;
+    return s->size == 0;
 }
-
 
 bool set_member_of(const int value, const set *const s)
 {
@@ -108,80 +100,73 @@ bool set_member_of(const int value, const set *const s)
         return false;
     }
 
-    int byte_no = bit_in_array / 8;
-    int bit = 7 - bit_in_array % 8;
-    char the_byte = s->array[byte_no];
+    int byte_no = bit_in_array / 8;    // val = 5 --> 0000 0101 --> 5
+    int bit = 7 - bit_in_array % 8;    // 7 - 1 = 6  --> 1 0100 0000
+    char the_byte = s->array[byte_no]; // s->array[5]
 
-    return the_byte & 1 << bit;
+    return the_byte & 1 << bit; // if s->array[5] has value 1 and the bitshift has the same value as s->array[5]
 }
-
 
 int set_choose(const set *const s)
 {
-	for (int i = 0 ; i < s->capacity ; i++) {
-		if (set_member_of(i, s)) {
-			return i;
-		}
-	}
+    for (int i = 0; i < s->capacity; i++) {
+        if (set_member_of(i, s)) {
+            return i;
+        }
+    }
 
-	return -1;
+    return -1;
 }
-
 
 void set_remove(const int value, set *const s)
 {
-	if (set_member_of(value, s)) {
-		int bit_in_array = value; // To make the code easier to read
-		int byte_no = bit_in_array / 8;
-		int bit = 7 - bit_in_array % 8;
-		s->array[byte_no] = s->array[byte_no] & ~(1 << bit);
-		s->size--;
-	}
+    if (set_member_of(value, s)) {
+        int bit_in_array = value; // To make the code easier to read
+        int byte_no = bit_in_array / 8;
+        int bit = 7 - bit_in_array % 8;
+        s->array[byte_no] = s->array[byte_no] & ~(1 << bit);
+        s->size--;
+    }
 }
-
 
 bool set_equal(const set *const s1, const set *const s2)
 {
-	return set_subset(s1, s2) && set_subset(s2, s1);
+    return set_subset(s1, s2) && set_subset(s2, s1);
 }
-
 
 bool set_subset(const set *const s1, const set *const s2)
 {
-	for (int i = 0 ; i < s1->capacity ; i++) {
-		if (set_member_of(i, s1) && !set_member_of(i, s2)) {
-			return false;
-		}
-	}
+    for (int i = 0; i < s1->capacity; i++) {
+        if (set_member_of(i, s1) && !set_member_of(i, s2)) {
+            return false;
+        }
+    }
 
-	return true;
+    return true;
 }
-
 
 int set_size(const set *const s)
 {
-	return s->size;
+    return s->size;
 }
-
 
 int *set_get_values(const set *const s)
 {
-	int *values = malloc(s->size * sizeof(int));
-	int j = 0;
+    int *values = malloc(s->size * sizeof(int));
+    int j = 0;
 
-	for (int i = 0 ; i < s->capacity ; i++) {
-		if (set_member_of(i, s)) {
-			values[j] = i;
-			j++;
-		}
-	}
+    for (int i = 0; i < s->capacity; i++) {
+        if (set_member_of(i, s)) {
+            values[j] = i;
+            j++;
+        }
+    }
 
-	return values;
+    return values;
 }
-
 
 void set_destroy(set *s)
 {
-	free(s->array);
-	free(s);
+    free(s->array);
+    free(s);
 }
