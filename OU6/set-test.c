@@ -16,7 +16,6 @@ void check_set_choose(set *s);
 void check_set_equal(set *s1, set *s2);
 void check_set_subset(set *s1, set *s2);
 void check_set_remove(set *s);
-// void check_set_destroy(set *s);
 void check_set_size(set *s);
 
 struct set {
@@ -30,6 +29,7 @@ int main(void)
     // * Test SET_EMPTY() *
     set *s1 = set_empty();
     set *s2 = set_empty();
+    check_set_empty(s1, s2);
 
     // * Test SET_SINGLE() *
     set *s3 = check_set_single();
@@ -103,13 +103,20 @@ int main(void)
 
 void check_set_empty(set *s1, set *s2)
 {
-    bool is_ok = false;
+    bool is_empty = false;
+    bool is_not_empty = false;
 
     if (s1->size == 0 && s2->size == 0) {
-        is_ok = true;
+        is_empty = true;
     }
 
-    printf("The functioning of set_empty() has been tested ... \t\t%s", is_ok ? "OK" : "FAIL");
+    set_insert(10, s2);
+
+    if (s1->size == 0 && s2->size != 0) {
+        is_not_empty = true;
+    }
+
+    printf("The functioning of set_empty() has been tested ... \t\t%s\n", is_empty && is_not_empty ? "OK" : "FAIL");
 }
 
 set *check_set_single(void)
@@ -123,6 +130,7 @@ set *check_set_single(void)
             is_ok = true;
         }
     }
+
     printf("The functioning of set_single() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 
     return s;
@@ -227,6 +235,7 @@ void check_set_get_values(set *s)
 
     free(values);
 }
+
 void check_set_member_of(set *s)
 {
     bool is_ok = true;
@@ -238,12 +247,13 @@ void check_set_member_of(set *s)
     }
     printf("The functioning of set_member_of() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 }
+
 void check_set_is_empty(set *s)
 {
-
     bool is_ok = (s->size == 0) ? true : false; // ! Maybe redundant !
     printf("The functioning of set_is_empty() has been tested ... \t\t%s\n", set_is_empty(s) && is_ok ? "OK" : "FAIL");
 }
+
 void check_set_choose(set *s)
 {
     int value = set_choose(s);
@@ -251,6 +261,7 @@ void check_set_choose(set *s)
 
     printf("The functioning of set_choos() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 }
+
 void check_set_equal(set *s1, set *s2)
 {
     bool is_ok = true;
