@@ -11,7 +11,7 @@
  * The module declarations are used by the files array.c and main.c.
  *
  * @author Bran Mjöberg Quanne
- * 
+ *
  * @since 2024-12-16
  * @{
  */

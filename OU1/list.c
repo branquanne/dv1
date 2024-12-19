@@ -3,17 +3,17 @@
 #include <string.h>
 
 /*
- * Description:   This file handles the definitions of the functions used to create, manipulate and destroy a list.
+ * Description:   This file handles the definitions of the functions used to create, manipulate and destroy a doubly linked list.
  *
  * Author:        Bran Mjöberg Quanne
  * Date:          2024-12-16
  */
 
+/* --- The following two functions are not declared in list.h --- */
+
 /*
- * Description:   This function takes a constant character pointer as input,
- *                calculates its length, allocates memory for a new string of
- *                the same length plus one for the null terminator, and copies
- *                the input string to the newly allocated memory.
+ * Description:   This function allocates memory for a new string and copies the
+ *                contents of the input string into the newly allocated memory.
  *
  * Input:         The input string to be cloned.
  *
@@ -32,9 +32,7 @@ static char *clone_string(const char *in)
 }
 
 /*
- * Description:   This function allocates memory for a new node, initializes its
- *                `next` and `prev` pointers to NULL, and sets its `value` to a
- *                clone of the provided string.
+ * Description:   This function creates a new node and allocates memory for it.
  *
  * Input:         The string value to be stored in the new node.
  *
@@ -49,6 +47,8 @@ static struct node *make_node(const char *value)
 
     return n;
 }
+
+/* --- The following functions are declared in list.h --- */
 
 List *list_create(void)
 {

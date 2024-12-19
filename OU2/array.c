@@ -6,6 +6,7 @@
  *
  * Author:        Bran Mjöberg Quanne
  * Date:          2024-12-16
+ */
 
 /* --- The following functions are declared in array.h --- */
 

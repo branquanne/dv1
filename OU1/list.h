@@ -68,6 +68,8 @@ List *list_create(void);
  * @return None.
  *
  * @see list_create().
+ *
+ * @note Usage may result in undefined behavior if the list is not initialized.
  */
 void list_destroy(List *lst);
 
@@ -137,6 +139,8 @@ bool list_pos_equal(ListPos p1, ListPos p2);
  *
  * @return The next position.
  *
+ * @see list_prev().
+ *
  * @note Usage may result in undefined behavior if the list is not initialized or if the position is the last element.
  */
 ListPos list_next(ListPos pos);
@@ -149,6 +153,8 @@ ListPos list_next(ListPos pos);
  * @param pos A position.
  *
  * @return The previous position.
+ *
+ * @see list_next().
  *
  * @note Usage may result in undefined behavior if the list is not initialized or if the position is the first element.
  */
