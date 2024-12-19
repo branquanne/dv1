@@ -86,7 +86,7 @@ int main(void)
     // * Test SET_SIZE() *
     check_set_size(s5);
 
-    // * Test SET_DESTROY() using valgrind
+    // * Test SET_DESTROY() with valgrind, run "valgrind ./<program name>"
     set_destroy(s1);
     set_destroy(s2);
     set_destroy(s3);
