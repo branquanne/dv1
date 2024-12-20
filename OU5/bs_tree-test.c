@@ -3,16 +3,16 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* 
-* File:         bs_tree-test.c
-*
-* Description:  A program that creates a binary search tree and inserts values in the tree. 
-*               The program then searches for the values in the tree.
-* 
-* Author:       Bran Mjöberg Quanne
-*   
-* Date:        2024-12-13
-*/
+/*
+ * File:         bs_tree-test.c
+ *
+ * Description:  A program that creates a binary search tree and inserts values in the tree.
+ *               The program then searches for the values in the tree.
+ *
+ * Author:       Bran Mjöberg Quanne
+ *
+ * Date:        2024-12-13
+ */
 
 // Declarations of functions.
 void print_array(int n, int a[]);
@@ -96,16 +96,16 @@ void swap(int *a, int *b)
     *b = temp;
 }
 
-/* The following functions were implemented by Bran Mjöberg Quanne */ 
+/* The following functions were implemented by Bran Mjöberg Quanne */
 
 /*
-* Description: Insert a value in the search tree.
-*
-* Input:       value - The value to insert.
-*              first_pos - The position of the first node.
-* 
-* Output:      The position of the new node.
-*/
+ * Description: Insert a value in the search tree.
+ *
+ * Input:       value - The value to insert.
+ *              first_pos - The position of the first node.
+ *
+ * Output:      The position of the new node.
+ */
 void insert_value(int value, BSTreePos first_pos)
 {
     while (true) {
@@ -131,13 +131,13 @@ void insert_value(int value, BSTreePos first_pos)
 }
 
 /*
-* Description: Search for a specified value in the search tree.
-* 
-* Input:       value - The value to search for.
-*              first_pos - The position of the first node.
-*
-* Output:      The position of the node with the specified value.
-*/
+ * Description: Search for a specified value in the search tree.
+ *
+ * Input:       value - The value to search for.
+ *              first_pos - The position of the first node.
+ *
+ * Output:      The position of the node with the specified value.
+ */
 BSTreePos search_value(int value, BSTreePos first_pos)
 {
     while (first_pos != NULL) {

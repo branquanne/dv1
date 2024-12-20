@@ -8,7 +8,7 @@
  * @brief Declarations used to represent a double linked list.
  *
  * A module that contains the declarations of structs and functions used to
- * create and manipulate a list. The module declarations are used by the files
+ * create and manipulate a doubly linked list. The module declarations are used by the files
  * list.c and main.c.
  *
  * @author Bran Mjöberg Quanne
