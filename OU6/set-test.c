@@ -373,7 +373,7 @@ void check_set_get_values()
     printf("The functioning of set_get_values() has been tested ... \t%s\n", is_ok ? "OK" : "FAIL");
 
     // Clean up
-    free(s);
+    set_destroy(s);
     free(values);
 }
 
