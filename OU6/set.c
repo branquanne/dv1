@@ -1,6 +1,22 @@
 #include "set.h"
 #include <stdlib.h>
 
+/*
+ * File:         set.c
+ *
+ * Description:  This file contains the implementation of the set module.
+ *               The set module provides a set data structure and functions for creating and manipulating sets.
+ *               The set module provides functions for creating a new empty set, creating a new set with a single element,
+ *               inserting a value into the set, creating the union, intersection, and difference of two sets, checking if the set is empty,
+ *               checking if the value is a member of the set, choosing a value from the set, removing an element from the set, checking if two sets are equal,
+ *               checking if the first set is a subset of the second set, and getting the size of the set.
+ *               The set module also provides a function for destroying the set and a function for getting the values of the set.
+ *
+ * Author:       Bran Mjöberg Quanne
+ *
+ * Date:         2024-12-21
+ */
+
 struct set {
     int capacity;
     int size;
@@ -26,9 +42,8 @@ set *set_single(const int value)
 void set_insert(const int value, set *s)
 {
     if (!set_member_of(value, s)) {
-        int bit_in_array = value; // To make the code easier to read
+        int bit_in_array = value;
 
-        // Increase the capacity if necessary
         if (bit_in_array >= s->capacity) {
             int no_of_bytes = bit_in_array / 8 + 1;
             s->array = realloc(s->array, no_of_bytes);
@@ -38,16 +53,13 @@ void set_insert(const int value, set *s)
             s->capacity = no_of_bytes * 8;
         }
 
-        // Set the bit
         int byte_no = bit_in_array / 8;
         int bit = 7 - bit_in_array % 8;
-        s->array[byte_no] = s->array[byte_no] | 1 << bit; // If it already exists, no need to add bitshift
+        s->array[byte_no] = s->array[byte_no] | 1 << bit;
         s->size++;
     }
 }
 
-// Note: More effective implementations are possible, but this is
-// okay for this assignment.
 set *set_union(const set *const s1, const set *const s2)
 {
     set *s = set_empty();
@@ -94,17 +106,17 @@ bool set_is_empty(const set *const s)
 
 bool set_member_of(const int value, const set *const s)
 {
-    int bit_in_array = value; // To make the code easier to read
+    int bit_in_array = value;
 
     if (bit_in_array >= s->capacity) {
         return false;
     }
 
-    int byte_no = bit_in_array / 8;    // val = 5 --> 0000 0101 --> 5
-    int bit = 7 - bit_in_array % 8;    // 7 - 1 = 6  --> 1 0100 0000
-    char the_byte = s->array[byte_no]; // s->array[5]
+    int byte_no = bit_in_array / 8;
+    int bit = 7 - bit_in_array % 8;
+    char the_byte = s->array[byte_no];
 
-    return the_byte & 1 << bit; // if s->array[5] has value 1 and the bitshift has the same value as s->array[5]
+    return the_byte & 1 << bit;
 }
 
 int set_choose(const set *const s)
@@ -121,7 +133,7 @@ int set_choose(const set *const s)
 void set_remove(const int value, set *const s)
 {
     if (set_member_of(value, s)) {
-        int bit_in_array = value; // To make the code easier to read
+        int bit_in_array = value;
         int byte_no = bit_in_array / 8;
         int bit = 7 - bit_in_array % 8;
         s->array[byte_no] = s->array[byte_no] & ~(1 << bit);
