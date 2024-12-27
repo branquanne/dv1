@@ -31,19 +31,6 @@ typedef struct {
 /**
  * @brief Create a new graph.
  *
- * This function creates a new graph with no nodes or edges.
- *
- * @param None.
- *
- * @return A pointer to the new graph.
- *
- * @note The user is responsible for freeing the memory allocated by this function. This can be done by calling destroy_graph().
- */
-Graph *create_empty_graph();
-
-/**
- * @brief Create a new graph.
- *
  * This function creates a new graph with N (0, ..., N-1) nodes and no edges.
  *
  * @param None.

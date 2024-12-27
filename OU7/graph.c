@@ -6,6 +6,15 @@
 
 #define N 10 // Number of nodes in the graph
 
+/* --- The following function is not declared in graph.h and is merely a helper function --- */
+
+/*
+ * Description: This function creates a new graph with no nodes or edges.
+ *
+ * Input: None.
+ *
+ * Output: A pointer to the new graph.
+ */
 Graph *create_empty_graph()
 {
     Graph *graph = malloc(sizeof(Graph));
@@ -13,6 +22,8 @@ Graph *create_empty_graph()
     graph->nodes = set_empty();
     return graph;
 }
+
+/* --- The following functions are declared in graph.h and are implemented here --- */
 
 Graph *create_graph()
 {
@@ -38,7 +49,6 @@ Graph *neighbours(const Graph *graph, int node)
     int *edges = set_get_values(graph->edges);
     for (int i = 0; i < set_size(graph->edges); i++) {
 
-        // Extract the two nodes from the edge
         int node1 = edges[i] / 1000;
         int node2 = edges[i] % 1000;
 
@@ -65,7 +75,6 @@ void insert_node(Graph *graph, int node)
 
 void insert_edge(Graph *graph, int node1, int node2)
 {
-    // Ensure that node1 < node2
     set_insert(node1 * 1000 + node2, graph->edges);
     set_insert(node2 * 1000 + node1, graph->edges);
 }
