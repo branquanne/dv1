@@ -7,10 +7,31 @@
 
 #define N 10 // Number of nodes in the graph
 
+/*
+ * File: 		graph-test.c
+ *
+ * Description: Test program for the graph module. Creates an undirected graph with N nodes and adds random edges to the graph.
+ *              Performs a depth-first traversal of the graph and prints the neighbour list for each node.
+ * 				Uses the graph module to create and manipulate the graph.
+ *
+ * Author: 		Bran Mjöberg Quanne
+ *
+ * Date: 		2024-12-27
+ */
+
 void depth_first(int node, Graph *graph, bool *visited);
 void print_neighbour_list(Graph *graph);
 void add_random_edges(Graph *graph);
 
+/*
+ * Description: Main function for the program. Creates a graph, adds random edges to the graph,
+ * 				performs a depth-first traversal of the graph, prints the neighbour list for each node,
+ * 				and destroys the graph.
+ *
+ * Input: 		None.
+ *
+ * Output: 		0 if the program runs successfully.
+ */
 int main(void)
 {
     // Seed the random number generator
@@ -38,6 +59,13 @@ int main(void)
     return 0;
 }
 
+/*
+ * Description: Add random edges to the graph.
+ *
+ * Input: 		A pointer to the graph.
+ *
+ * Output: 		None.
+ */
 void add_random_edges(Graph *graph)
 {
     for (int i = 0; i < N; i++) {
@@ -47,18 +75,15 @@ void add_random_edges(Graph *graph)
             }
         }
     }
-    // insert_edge(graph, 0, 1);
-    // insert_edge(graph, 0, 2);
-    // insert_edge(graph, 0, 3);
-    // insert_edge(graph, 1, 4);
-    // insert_edge(graph, 1, 5);
-    // insert_edge(graph, 2, 6);
-    // insert_edge(graph, 2, 7);
-    // insert_edge(graph, 3, 8);
-    // insert_edge(graph, 3, 9);
-    // insert_edge(graph, 8, 5);
 }
 
+/*
+ * Description: Perform a depth-first traversal of the graph.
+ *
+ * Input: 		The current node, a pointer to the graph, and an array of visited nodes.
+ *
+ * Output: 		None.
+ */
 void depth_first(int node, Graph *graph, bool *visited)
 {
     // Mark the node as visited and print it
@@ -84,6 +109,13 @@ void depth_first(int node, Graph *graph, bool *visited)
     destroy_graph(neighbour_set);
 }
 
+/*
+ * Description: Print the neighbour list for each node in the graph.
+ *
+ * Input: 		A pointer to the graph.
+ *
+ * Output: 		None.
+ */
 void print_neighbour_list(Graph *graph)
 {
     // Loop through all nodes in the graph
