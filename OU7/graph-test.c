@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define N 25 // Number of nodes in the graph
+#define N 10 // Number of nodes in the graph
 
 void depth_first(int node, Graph *graph, bool *visited);
 void print_neighbour_list(Graph *graph);
@@ -20,6 +20,18 @@ int main(void)
     for (int i = 0; i < N; i++) {
         insert_node(graph, i);
     }
+
+    // Add selected edges to the graph
+    // insert_edge(graph, 0, 1);
+    // insert_edge(graph, 0, 2);
+    // insert_edge(graph, 0, 3);
+    // insert_edge(graph, 0, 4);
+    // insert_edge(graph, 0, 5);
+    // insert_edge(graph, 0, 6);
+    // insert_edge(graph, 0, 7);
+    // insert_edge(graph, 0, 8);
+    // insert_edge(graph, 0, 9);
+    // insert_edge(graph, 1, 5);
 
     // Add random edges to the graph
     for (int i = 0; i < N; i++) {

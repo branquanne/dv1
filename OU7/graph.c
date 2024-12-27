@@ -23,7 +23,7 @@ Graph *neighbours(const Graph *graph, int node)
 {
     Graph *neighbours = create_graph();
     int *edges = set_get_values(graph->edges);
-    for (int i = 0; i < set_size(graph->edges); i += 2) {
+    for (int i = 0; i < set_size(graph->edges); i++) {
 
         // Extract the two nodes from the edge
         int node1 = edges[i] / 1000;
@@ -53,4 +53,5 @@ void insert_edge(Graph *graph, int node1, int node2)
 {
     // Ensure that node1 < node2
     set_insert(node1 * 1000 + node2, graph->edges);
+    set_insert(node2 * 1000 + node1, graph->edges);
 }
