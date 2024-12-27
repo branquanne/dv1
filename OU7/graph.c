@@ -4,11 +4,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define N 10 // Number of nodes in the graph
+
+Graph *create_empty_graph()
+{
+    Graph *graph = malloc(sizeof(Graph));
+    graph->edges = set_empty();
+    graph->nodes = set_empty();
+    return graph;
+}
+
 Graph *create_graph()
 {
     Graph *graph = malloc(sizeof(Graph));
     graph->edges = set_empty();
     graph->nodes = set_empty();
+    for (int i = 0; i < N; i++) {
+        insert_node(graph, i);
+    }
     return graph;
 }
 
@@ -21,13 +34,14 @@ void destroy_graph(Graph *graph)
 
 Graph *neighbours(const Graph *graph, int node)
 {
-    Graph *neighbours = create_graph();
+    Graph *neighbours = create_empty_graph();
     int *edges = set_get_values(graph->edges);
     for (int i = 0; i < set_size(graph->edges); i++) {
 
         // Extract the two nodes from the edge
         int node1 = edges[i] / 1000;
         int node2 = edges[i] % 1000;
+
         if (node1 == node) {
             insert_node(neighbours, node2);
         }

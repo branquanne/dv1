@@ -9,6 +9,7 @@
 
 void depth_first(int node, Graph *graph, bool *visited);
 void print_neighbour_list(Graph *graph);
+void add_random_edges(Graph *graph);
 
 int main(void)
 {
@@ -17,30 +18,9 @@ int main(void)
 
     // Create a graph with N nodes
     Graph *graph = create_graph();
-    for (int i = 0; i < N; i++) {
-        insert_node(graph, i);
-    }
-
-    // Add selected edges to the graph
-    // insert_edge(graph, 0, 1);
-    // insert_edge(graph, 0, 2);
-    // insert_edge(graph, 0, 3);
-    // insert_edge(graph, 0, 4);
-    // insert_edge(graph, 0, 5);
-    // insert_edge(graph, 0, 6);
-    // insert_edge(graph, 0, 7);
-    // insert_edge(graph, 0, 8);
-    // insert_edge(graph, 0, 9);
-    // insert_edge(graph, 1, 5);
 
     // Add random edges to the graph
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            if (i != j && rand() % 3 == 0) {
-                insert_edge(graph, i, j);
-            }
-        }
-    }
+    add_random_edges(graph);
 
     // Print the graph
     bool visited[N] = {false};
@@ -58,6 +38,27 @@ int main(void)
     return 0;
 }
 
+void add_random_edges(Graph *graph)
+{
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (i != j && rand() % 10 == 0) {
+                insert_edge(graph, i, j);
+            }
+        }
+    }
+    // insert_edge(graph, 0, 1);
+    // insert_edge(graph, 0, 2);
+    // insert_edge(graph, 0, 3);
+    // insert_edge(graph, 1, 4);
+    // insert_edge(graph, 1, 5);
+    // insert_edge(graph, 2, 6);
+    // insert_edge(graph, 2, 7);
+    // insert_edge(graph, 3, 8);
+    // insert_edge(graph, 3, 9);
+    // insert_edge(graph, 8, 5);
+}
+
 void depth_first(int node, Graph *graph, bool *visited)
 {
     // Mark the node as visited and print it
@@ -67,7 +68,7 @@ void depth_first(int node, Graph *graph, bool *visited)
     // Get the neighbours of the node
     Graph *neighbour_set = neighbours(graph, node);
     int *neighbour_nodes = set_get_values(neighbour_set->nodes);
-    int neighbour_count = set_size(neighbour_set->nodes);
+    int neighbour_count = num_nodes(neighbour_set);
 
     // Recursively visit the neighbours
     for (int i = 0; i < neighbour_count; i++) {
@@ -92,7 +93,7 @@ void print_neighbour_list(Graph *graph)
         // Get the neighbour set for the current node
         Graph *neighbour_set = neighbours(graph, i);
         int *neighbour_nodes = set_get_values(neighbour_set->nodes);
-        int neighbour_count = set_size(neighbour_set->nodes);
+        int neighbour_count = num_nodes(neighbour_set);
 
         // Print the neighbour list for the current node
         for (int j = 0; j < neighbour_count; j++) {
