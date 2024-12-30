@@ -1,7 +1,6 @@
 #include "graph.h"
 #include "set.h"
 #include <stdbool.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 #define N 10 // Number of nodes in the graph
