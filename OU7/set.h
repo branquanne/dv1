@@ -7,7 +7,8 @@
  *
  * @brief A module for creating and manipulating sets.
  *
- * @details This module provides a set data structure and functions for creating and manipulating sets.
+ * @details This module provides a set data structure and functions for creating
+ * and manipulating sets.
  *
  * @author Bran Mjöberg Quanne
  *
@@ -19,7 +20,8 @@
 /**
  * @brief The type for the set.
  *
- * The implementation of the set is hidden from the user and needs to be implemented in the implementation file.
+ * The implementation of the set is hidden from the user and needs to be
+ * implemented in the implementation file.
  */
 typedef struct set set;
 
@@ -30,7 +32,8 @@ typedef struct set set;
  *
  * @return A pointer to the new empty set.
  *
- * @note The user is responsible for freeing the memory allocated by this function. This can be done by calling set_destroy().
+ * @note The user is responsible for freeing the memory allocated by this
+ * function. This can be done by calling set_destroy().
  *
  * @see set_destroy()
  */
@@ -39,14 +42,17 @@ set *set_empty();
 /**
  * @brief Creates a new set with a single element.
  *
- * This function creates a new set with a single member element and allocates memory for it.
+ * This function creates a new set with a single member element and allocates
+ * memory for it.
  *
  * @param value The value to be inserted into the set.
  *
  * @return A pointer to the new set with a single element.
  *
- * @note Usage may result in undefined behavior if the value is not within the range of the set.
- * @note The user is responsible for freeing the memory allocated by this function. This can be done by calling set_destroy().
+ * @note Usage may result in undefined behavior if the value is not within the
+ * range of the set.
+ * @note The user is responsible for freeing the memory allocated by this
+ * function. This can be done by calling set_destroy().
  *
  * @see set_destroy()
  */
@@ -60,7 +66,8 @@ set *set_single(const int value);
  * @param value The value to be inserted into the set.
  * @param s A pointer to the set.
  *
- * @note Usage may result in undefined behavior if the value is not within the range of the set or if the set does not exist.
+ * @note Usage may result in undefined behavior if the value is not within the
+ * range of the set or if the set does not exist.
  *
  * @see set_remove()
  */
@@ -77,7 +84,8 @@ void set_insert(const int value, set *s);
  * @return A pointer to the new set that is the union of the two sets.
  *
  * @note Usage may result in undefined behavior if the sets do not exist.
- * @note The user is responsible for freeing the memory allocated by this function. This can be done by calling set_destroy().
+ * @note The user is responsible for freeing the memory allocated by this
+ * function. This can be done by calling set_destroy().
  *
  * @see set_intersection()
  * @see set_difference()
@@ -95,7 +103,8 @@ set *set_union(const set *const s1, const set *const s2);
  * @return A pointer to the new set that is the intersection of the two sets.
  *
  * @note Usage may result in undefined behavior if the sets do not exist.
- * @note The user is responsible for freeing the memory allocated by this function. This can be done by calling set_destroy().
+ * @note The user is responsible for freeing the memory allocated by this
+ * function. This can be done by calling set_destroy().
  *
  * @see set_union()
  * @see set_difference()
@@ -113,7 +122,8 @@ set *set_intersection(const set *const s1, const set *const s2);
  * @return A pointer to the new set that is the difference of the two sets.
  *
  * @note Usage may result in undefined behavior if the sets do not exist.
- * @note The user is responsible for freeing the memory allocated by this function. This can be done by calling set_destroy().
+ * @note The user is responsible for freeing the memory allocated by this
+ * function. This can be done by calling set_destroy().
  *
  * @see set_union()
  * @see set_intersection()
@@ -168,7 +178,8 @@ int set_choose(const set *const s);
  * @param value The value to be removed.
  * @param s A pointer to the set.
  *
- * @note Usage may result in undefined behavior if the value is not within the range of the set or if the set does not exist.
+ * @note Usage may result in undefined behavior if the value is not within the
+ * range of the set or if the set does not exist.
  *
  * @see set_insert()
  */
@@ -212,7 +223,8 @@ bool set_subset(const set *const s1, const set *const s2);
  * @return An array with all the values in the set.
  *
  * @note Usage may result in undefined behavior if the set does not exist.
- * @note The user is responsible for freeing the memory allocated by this function. This can be done by calling free().
+ * @note The user is responsible for freeing the memory allocated by this
+ * function. This can be done by calling free().
  */
 int *set_get_values(const set *const s);
 
