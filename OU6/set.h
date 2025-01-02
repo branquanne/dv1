@@ -20,14 +20,6 @@
 /**
  * @brief The type for the set.
  *
- * The implementation of the set is hidden from the user and needs to be
- * implemented in the implementation file.
- */
-// typedef struct set set;
-
-/**
- * @brief The type for the set.
- *
  * The type for the set is defined as a struct.
  */
 typedef struct set {
