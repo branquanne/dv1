@@ -22,6 +22,12 @@
  * Date:         2024-12-21
  */
 
+struct set {
+  int capacity;
+  int size;
+  char *array;
+};
+
 set *set_empty() {
   set *s = malloc(sizeof(set));
   s->capacity = 0;

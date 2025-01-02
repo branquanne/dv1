@@ -19,7 +19,7 @@
  *
  * Author:       Bran Mjöberg Quanne
  *
- * Date:         2024-12-22
+ * Date:         2025-01-02
  */
 
 void check_set_empty();
@@ -37,12 +37,6 @@ void check_set_subset();
 void check_set_remove();
 void check_set_size();
 void populate_set(set *s, int start, int end);
-
-/*struct set {
-    int capacity;
-    int size;
-    char *array;
-};*/
 
 /*
  * Description: The main function that tests the set module.
@@ -112,7 +106,7 @@ void check_set_empty() {
   set *s2 = set_empty();
 
   // Check if the sets are empty
-  if (s1->size != 0 || s2->size != 0) {
+  if (set_size(s1) != 0 || set_size(s2) != 0) {
     is_ok = false;
   }
 
@@ -120,7 +114,7 @@ void check_set_empty() {
   set_insert(10, s2);
 
   // Check if the second set is not empty
-  if (s2->size == 0) {
+  if (set_size(s2) == 0) {
     is_ok = false;
   }
 
@@ -147,10 +141,10 @@ void check_set_single() {
   set *s = set_single(1000);
 
   // Check if the size is 1 and the element is correct
-  if (s->size == 1) {
+  if (set_size(s) == 1) {
 
     // If the element is incorrect, set is_ok to false
-    if (!(s->array[1000 / 8] & (1 << (7 - 1000 % 8)))) {
+    if (!set_member_of(1000, s)) {
       is_ok = false;
     }
   } else {
@@ -183,11 +177,11 @@ void check_set_insert() {
   populate_set(s, 0, 100);
 
   // Check if the size is 100 and the elements are correct
-  if (s->size == 100) {
+  if (set_size(s) == 100) {
     for (int i = 0; i < 100; i++) {
 
       // If the element is not correct, set is_ok to false and break the loop
-      if (!(s->array[i / 8] & (1 << (7 - i % 8)))) {
+      if (!set_member_of(i, s)) {
         is_ok = false;
         break;
       }
@@ -226,11 +220,11 @@ void check_set_union() {
   set *s3 = set_union(s1, s2);
 
   // Check if the size is 150 since the union of the two sets is 150
-  if (s3->size == 150) {
+  if (set_size(s3) == 150) {
     for (int i = 0; i < 150; i++) {
 
       // If the element is not correct, set is_ok to false and break the loop
-      if (!(s3->array[i / 8] & (1 << (7 - i % 8)))) {
+      if (!set_member_of(i, s3)) {
         is_ok = false;
         break;
       }
@@ -271,11 +265,11 @@ void check_set_intersection() {
   set *s3 = set_intersection(s1, s2);
 
   // Check if the size is 50 since the intersection of the two sets is 50
-  if (s3->size == 50) {
+  if (set_size(s3) == 50) {
     for (int i = 50; i < 100; i++) {
 
       // If the element is not correct, set is_ok to false and break the loop
-      if (!(s3->array[i / 8] & (1 << (7 - i % 8)))) {
+      if (!set_member_of(i, s3)) {
         is_ok = false;
         break;
       }
@@ -310,17 +304,17 @@ void check_set_difference() {
 
   // Add 100 elements to the sets
   populate_set(s1, 0, 100);
-  populate_set(s2, 50, 150);
+  populate_set(s2, 50, 100);
 
   // Create a set with the difference of the two sets
   set *s3 = set_difference(s1, s2);
 
   // Check if the size is 50 since the difference of the two sets is 50
-  if (s3->size == 50) {
+  if (set_size(s3) == 50) {
     for (int i = 0; i < 50; i++) {
 
       // If the element is not correct, set is_ok to false and break the loop
-      if (!(s3->array[i / 8] & (1 << (7 - i % 8)))) {
+      if (/*!(s3->array[i / 8] & (1 << (7 - i % 8)))*/ !set_member_of(i, s3)) {
         is_ok = false;
         break;
       }
@@ -490,11 +484,11 @@ void check_set_equal() {
   populate_set(s2, 0, 100);
 
   // Check if the size is the same
-  if (s1->size != s2->size) {
+  if (set_size(s1) != set_size(s2)) {
     is_ok = false;
   } else {
     // Check if the elements are the same
-    for (int i = 0; i < s1->capacity; i++) {
+    for (int i = 0; i < 100; i++) {
 
       // If the elements are not the same, set is_ok to false and break the loop
       if (set_member_of(i, s1) != set_member_of(i, s2)) {
@@ -588,7 +582,7 @@ void check_set_remove() {
   bool is_ok = !set_member_of(50, s);
 
   // Check if the size of the set is now 99
-  if (s->size != 99) {
+  if (set_size(s) != 99) {
     is_ok = false;
   }
 

@@ -20,13 +20,10 @@
 /**
  * @brief The type for the set.
  *
- * The type for the set is defined as a struct.
+ * This type is used to represent a set. The implementation of the set is hidden
+ * from the user and has to be implemented in the implementation file.
  */
-typedef struct set {
-  int capacity; /**< The capacity */
-  int size;     /**< The size */
-  char *array;  /**< The bitvector */
-} set;
+typedef struct set set;
 
 /**
  * @brief Creates a new empty set.
@@ -161,9 +158,9 @@ bool set_is_empty(const set *const s);
 bool set_member_of(const int value, const set *const s);
 
 /**
- * @brief Returns the first member of the set.
+ * @brief Returns a random member of the set.
  *
- * This function returns the first valid member of the set.
+ * This function returns a  random member of the set.
  *
  * @param s A pointer to the set.
  *
