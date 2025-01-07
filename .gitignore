@@ -11,3 +11,4 @@ table-test
 test
 time_test
 array
+.clang-format

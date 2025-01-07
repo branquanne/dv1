@@ -119,8 +119,7 @@ void check_set_empty() {
   }
 
   // Print OK if the conditions are met, otherwise FAIL
-  printf("The functioning of set_empty() has been tested ... \t\t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_empty() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s1);
@@ -152,8 +151,7 @@ void check_set_single() {
   }
 
   // Print OK if the condition is met, otherwise FAIL
-  printf("The functioning of set_single() has been tested ... \t\t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_single() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s);
@@ -191,8 +189,7 @@ void check_set_insert() {
   }
 
   // Print OK if the condition is met, otherwise FAIL
-  printf("The functioning of set_insert() has been tested ... \t\t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_insert() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s);
@@ -234,8 +231,7 @@ void check_set_union() {
   }
 
   // Print OK if the condition is met, otherwise FAIL
-  printf("The functioning of set_union() has been tested ... \t\t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_union() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s1);
@@ -268,7 +264,8 @@ void check_set_intersection() {
   if (set_size(s3) == 50) {
     for (int i = 50; i < 100; i++) {
 
-      // If the element is not correct, set is_ok to false and break the loop
+      // If the element is not correct, set is_ok to false and break the
+      // loop
       if (!set_member_of(i, s3)) {
         is_ok = false;
         break;
@@ -279,8 +276,7 @@ void check_set_intersection() {
   }
 
   // Print OK if the condition is met, otherwise FAIL
-  printf("The functioning of set_intersection() has been tested ... \t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_intersection() has been tested ... \t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s1);
@@ -313,7 +309,8 @@ void check_set_difference() {
   if (set_size(s3) == 50) {
     for (int i = 0; i < 50; i++) {
 
-      // If the element is not correct, set is_ok to false and break the loop
+      // If the element is not correct, set is_ok to false and break the
+      // loop
       if (/*!(s3->array[i / 8] & (1 << (7 - i % 8)))*/ !set_member_of(i, s3)) {
         is_ok = false;
         break;
@@ -324,8 +321,7 @@ void check_set_difference() {
   }
 
   // Print OK if the condition is met, otherwise FAIL
-  printf("The functioning of set_difference() has been tested ... \t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_difference() has been tested ... \t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s1);
@@ -363,8 +359,7 @@ void check_set_get_values() {
   }
 
   // Print OK if the condition is met, otherwise FAIL
-  printf("The functioning of set_get_values() has been tested ... \t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_get_values() has been tested ... \t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s);
@@ -390,8 +385,8 @@ void check_set_member_of() {
   // Check if the elements are members of the set
   for (int i = 0; i < 100; i++) {
 
-    // If the element is not a member of the set, set is_ok to false and break
-    // the loop
+    // If the element is not a member of the set, set is_ok to false and
+    // break the loop
     if (!set_member_of(i, s)) {
       is_ok = false;
       break;
@@ -399,8 +394,7 @@ void check_set_member_of() {
   }
 
   // Print OK if the condition is met, otherwise FAIL
-  printf("The functioning of set_member_of() has been tested ... \t\t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_member_of() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s);
@@ -430,8 +424,7 @@ void check_set_is_empty() {
   }
 
   // Print OK if the condition is met, otherwise FAIL
-  printf("The functioning of set_is_empty() has been tested ... \t\t%s\n",
-         is_empty && is_not_empty ? "OK" : "FAIL");
+  printf("The functioning of set_is_empty() has been tested ... \t\t%s\n", is_empty && is_not_empty ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s);
@@ -458,8 +451,7 @@ void check_set_choose() {
   bool is_ok = set_member_of(value, s) ? true : false;
 
   // Print OK if the condition is met, otherwise FAIL
-  printf("The functioning of set_choose() has been tested ... \t\t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_choose() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s);
@@ -490,7 +482,8 @@ void check_set_equal() {
     // Check if the elements are the same
     for (int i = 0; i < 100; i++) {
 
-      // If the elements are not the same, set is_ok to false and break the loop
+      // If the elements are not the same, set is_ok to false and break
+      // the loop
       if (set_member_of(i, s1) != set_member_of(i, s2)) {
         is_ok = false;
         break;
@@ -499,8 +492,7 @@ void check_set_equal() {
   }
 
   // Print OK if the condition is met, otherwise FAIL
-  printf("The functioning of set_equal() has been tested ... \t\t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_equal() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s1);
@@ -552,8 +544,7 @@ void check_set_subset() {
   }
 
   // Print OK if all tests pass, otherwise FAIL
-  printf("The functioning of set_subset() has been tested ... \t\t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_subset() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(subset);
@@ -595,8 +586,7 @@ void check_set_remove() {
   }
 
   // Print OK or FAIL if the condition is met
-  printf("The functioning of set_remove() has been tested ... \t\t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_remove() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s);
@@ -620,8 +610,7 @@ void check_set_size() {
   bool is_ok = (set_size(s) == 100);
 
   // Print OK or FAIL depending on the condition
-  printf("The functioning of set_size() has been tested ... \t\t%s\n",
-         is_ok ? "OK" : "FAIL");
+  printf("The functioning of set_size() has been tested ... \t\t%s\n", is_ok ? "OK" : "FAIL");
 
   // Clean up
   set_destroy(s);
