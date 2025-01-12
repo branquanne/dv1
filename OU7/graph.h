@@ -3,7 +3,7 @@
 #include "set.h"
 #include <stdbool.h>
 
-// #define N 10 // Number of nodes in the graph
+#define N 11 // Number of nodes in the graph
 
 /**
  * @defgroup graph_h GRAPH_H

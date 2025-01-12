@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define N 10 // Number of nodes in the graph
+// #define N 10 // Number of nodes in the graph
 
 /*
  * File: 		    graph-test.c

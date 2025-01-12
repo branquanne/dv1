@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#define N 10 // Number of nodes in the graph
+// #define N 10 // Number of nodes in the graph
 
 /*
  * File:         graph.c
