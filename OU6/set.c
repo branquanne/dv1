@@ -7,15 +7,15 @@
  *
  * Description:  This file contains the implementation of the set module.
  *               The set module provides a set data structure and functions for
- * creating and manipulating sets. The set module provides functions for
- * creating a new empty set, creating a new set with a single element, inserting
- * a value into the set, creating the union, intersection, and difference of two
- * sets, checking if the set is empty, checking if the value is a member of the
- * set, choosing a value from the set, removing an element from the set,
- * checking if two sets are equal, checking if the first set is a subset of the
- * second set, and getting the size of the set. The set module also provides a
- * function for destroying the set and a function for getting the values of the
- * set.
+ *               creating and manipulating sets. The set module provides functions for
+ *               creating a new empty set, creating a new set with a single element, inserting
+ *               a value into the set, creating the union, intersection, and difference of two
+ *               sets, checking if the set is empty, checking if the value is a member of the
+ *               set, choosing a value from the set, removing an element from the set,
+ *               checking if two sets are equal, checking if the first set is a subset of the
+ *               second set, and getting the size of the set. The set module also provides a
+ *               function for destroying the set and a function for getting the values of the
+ *               set.
  *
  * Author:       Bran Mjöberg Quanne
  *
