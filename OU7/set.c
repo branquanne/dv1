@@ -1,5 +1,6 @@
 #include "set.h"
 #include <stdlib.h>
+#include <time.h>
 
 /*
  * File:         set.c
@@ -114,13 +115,12 @@ bool set_member_of(const int value, const set *const s) {
 }
 
 int set_choose(const set *const s) {
-  for (int i = 0; i < s->capacity; i++) {
-    if (set_member_of(i, s)) {
-      return i;
-    }
-  }
+  srand(time(NULL));
+  int *temp = set_get_values(s);
+  int random = temp[rand() % s->size];
+  free(temp);
 
-  return -1;
+  return random;
 }
 
 void set_remove(const int value, set *const s) {

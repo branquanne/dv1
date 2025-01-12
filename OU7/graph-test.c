@@ -8,16 +8,16 @@
 #define N 10 // Number of nodes in the graph
 
 /*
- * File: 		graph-test.c
+ * File: 		    graph-test.c
  *
  * Description: Test program for the graph module. Creates an undirected graph
- * with N nodes and adds random edges to the graph. Performs a depth-first
- * traversal of the graph and prints the neighbour list for each node. Uses the
- * graph module to create and manipulate the graph.
+ *              with N nodes and adds random edges to the graph. Performs a depth-first
+ *              traversal of the graph and prints the neighbour list for each node. Uses the
+ *              graph module to create and manipulate the graph.
  *
- * Author: 		Bran Mjöberg Quanne
+ * Author: 		  Bran Mjöberg Quanne
  *
- * Date: 		2024-12-27
+ * Date: 		    2025-01-12
  */
 
 void depth_first(int node, Graph *graph, bool *visited);
@@ -26,12 +26,12 @@ void add_random_edges(Graph *graph);
 
 /*
  * Description: Main function for the program. Creates a graph, adds random
- * edges to the graph, performs a depth-first traversal of the graph, prints the
- * neighbour list for each node, and destroys the graph.
+ *              edges to the graph, performs a depth-first traversal of the graph, prints the
+ *              neighbour list for each node, and destroys the graph.
  *
- * Input: 		None.
+ * Input: 		  None.
  *
- * Output: 		0 if the program runs successfully.
+ * Output: 		  0 if the program runs successfully.
  */
 int main(void) {
   // Seed the random number generator
@@ -62,9 +62,9 @@ int main(void) {
 /*
  * Description: Add random edges to the graph.
  *
- * Input: 		A pointer to the graph.
+ * Input: 		  A pointer to the graph.
  *
- * Output: 		None.
+ * Output: 		  None.
  */
 void add_random_edges(Graph *graph) {
   for (int i = 0; i < N; i++) {
@@ -79,10 +79,10 @@ void add_random_edges(Graph *graph) {
 /*
  * Description: Perform a depth-first traversal of the graph.
  *
- * Input: 		The current node, a pointer to the graph, and an array
- * of visited nodes.
+ * Input: 		  The current node, a pointer to the graph, and an array
+ *              of visited nodes.
  *
- * Output: 		None.
+ * Output: 		  None.
  */
 void depth_first(int node, Graph *graph, bool *visited) {
   // Mark the node as visited and print it
@@ -92,7 +92,7 @@ void depth_first(int node, Graph *graph, bool *visited) {
   // Get the neighbours of the node
   Graph *neighbour_set = neighbours(graph, node);
   int *neighbour_nodes = set_get_values(neighbour_set->nodes);
-  int neighbour_count = num_nodes(neighbour_set);
+  int neighbour_count = no_of_nodes(neighbour_set);
 
   // Recursively visit the neighbours
   for (int i = 0; i < neighbour_count; i++) {
@@ -113,9 +113,9 @@ void depth_first(int node, Graph *graph, bool *visited) {
 /*
  * Description: Print the neighbour list for each node in the graph.
  *
- * Input: 		A pointer to the graph.
+ * Input: 		  A pointer to the graph.
  *
- * Output: 		None.
+ * Output: 		  None.
  */
 void print_neighbour_list(Graph *graph) {
   // Loop through all nodes in the graph
@@ -125,7 +125,7 @@ void print_neighbour_list(Graph *graph) {
     // Get the neighbour set for the current node
     Graph *neighbour_set = neighbours(graph, i);
     int *neighbour_nodes = set_get_values(neighbour_set->nodes);
-    int neighbour_count = num_nodes(neighbour_set);
+    int neighbour_count = no_of_nodes(neighbour_set);
 
     // Print the neighbour list for the current node
     for (int j = 0; j < neighbour_count; j++) {

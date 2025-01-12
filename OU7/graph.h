@@ -3,6 +3,8 @@
 #include "set.h"
 #include <stdbool.h>
 
+// #define N 10 // Number of nodes in the graph
+
 /**
  * @defgroup graph_h GRAPH_H
  *
@@ -14,7 +16,7 @@
  *
  * @author Bran Mjöberg Quanne
  *
- * @since 2024-12-27
+ * @since 2025-01-12
  *
  * @{
  */
@@ -32,7 +34,7 @@ typedef struct {
 /**
  * @brief Create a new graph.
  *
- * This function creates a new graph with N (0, ..., N-1) nodes and no edges.
+ * This function creates a new graph with N (0, ..., N-1) nodes without any edges.
  *
  * @param None.
  *
@@ -71,7 +73,7 @@ Graph *neighbours(const Graph *graph, int node);
  *
  * @note Usage may result in undefined behaviour if the graph does not exist.
  */
-int num_nodes(const Graph *graph);
+int no_of_nodes(const Graph *graph);
 
 /**
  * @brief Destroy a graph.
