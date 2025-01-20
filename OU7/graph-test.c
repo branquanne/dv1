@@ -77,7 +77,7 @@ void add_random_edges(Graph *graph) {
 }
 
 /*
- * Description: Perform a depth-first traversal of the graph.
+ * Description: Perform a depth-first traversal of the graph. The depth-first traversal will not include any disconnected nodes.
  *
  * Input: 		  The current node, a pointer to the graph, and an array
  *              of visited nodes.

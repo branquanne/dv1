@@ -19,7 +19,7 @@
  *
  * Author:       Bran Mjöberg Quanne
  *
- * Date:         2025-01-02
+ * Date:         2025-01-15
  */
 
 void check_set_empty();
@@ -209,7 +209,7 @@ void check_set_union() {
   set *s1 = set_empty();
   set *s2 = set_empty();
 
-  // Add 100 elements to the sets
+  // Populate the sets with elements
   populate_set(s1, 0, 100);
   populate_set(s2, 50, 150);
 
@@ -253,7 +253,7 @@ void check_set_intersection() {
   set *s1 = set_empty();
   set *s2 = set_empty();
 
-  // Add 100 elements to the sets
+  // Populate the sets with elements
   populate_set(s1, 0, 100);
   populate_set(s2, 50, 150);
 
@@ -298,7 +298,7 @@ void check_set_difference() {
   set *s1 = set_empty();
   set *s2 = set_empty();
 
-  // Add 100 elements to the sets
+  // Populate the sets with elements
   populate_set(s1, 0, 100);
   populate_set(s2, 50, 100);
 
@@ -311,7 +311,7 @@ void check_set_difference() {
 
       // If the element is not correct, set is_ok to false and break the
       // loop
-      if (/*!(s3->array[i / 8] & (1 << (7 - i % 8)))*/ !set_member_of(i, s3)) {
+      if (!set_member_of(i, s3)) {
         is_ok = false;
         break;
       }

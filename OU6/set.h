@@ -12,7 +12,7 @@
  *
  * @author Bran Mjöberg Quanne
  *
- * @since 2024-12-21
+ * @since 2024-01-15
  *
  * @{
  */
