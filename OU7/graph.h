@@ -3,8 +3,6 @@
 #include "set.h"
 #include <stdbool.h>
 
-#define N 11 // Number of nodes in the graph
-
 /**
  * @defgroup graph_h GRAPH_H
  *
@@ -27,8 +25,8 @@
  * The graph is represented by a set of nodes and a set of edges.
  */
 typedef struct {
-  set *nodes; /**< A pointer to the set of nodes. */
-  set *edges; /**< A pointer to the set of edges. */
+    set *nodes; /**< A pointer to the set of nodes. */
+    set *edges; /**< A pointer to the set of edges. */
 } Graph;
 
 /**
@@ -36,14 +34,14 @@ typedef struct {
  *
  * This function creates a new graph with N (0, ..., N-1) nodes without any edges.
  *
- * @param None.
+ * @param size The number of nodes in the graph.
  *
  * @return A pointer to the new graph.
  *
  * @note The user is responsible for freeing the memory allocated by this
  * function. This can be done by calling destroy_graph().
  */
-Graph *create_graph();
+Graph *create_graph(int size);
 
 /**
  * @brief Get the neighbours of a node.
