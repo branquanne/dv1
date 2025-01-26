@@ -19,10 +19,6 @@
 
 /* --- The following function is not declared in graph.h and is merely a helper function --- */
 
-int what() {
-  int abc = 12;
-}
-
 /*
  * Description: This function creates a new graph with no nodes or edges.
  *
