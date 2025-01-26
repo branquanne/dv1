@@ -32,28 +32,28 @@ void add_random_edges(Graph *graph);
  * Output: 		  0 if the program runs successfully.
  */
 int main(void) {
-    srand(time(NULL));
+  srand(time(NULL));
 
-    int graph_size = 10;
-    Graph *graph = create_graph(graph_size);
+  int graph_size = 10;
+  Graph *graph = create_graph(graph_size);
 
-    add_random_edges(graph);
+  add_random_edges(graph);
 
-    bool visited[no_of_nodes(graph)];
-    for (int i = 0; i < no_of_nodes(graph); i++) {
-        visited[i] = false;
-    }
+  bool visited[no_of_nodes(graph)];
+  for (int i = 0; i < no_of_nodes(graph); i++) {
+    visited[i] = false;
+  }
 
-    printf("Depth-first traversal from node 0:\n");
-    depth_first(0, graph, visited);
-    printf("\n");
+  printf("Depth-first traversal from node 0:\n");
+  depth_first(0, graph, visited);
+  printf("\n");
 
-    printf("Neighbour list for each node:\n");
-    print_neighbour_list(graph);
+  printf("Neighbour list for each node:\n");
+  print_neighbour_list(graph);
 
-    destroy_graph(graph);
+  destroy_graph(graph);
 
-    return 0;
+  return 0;
 }
 
 /*
@@ -64,13 +64,13 @@ int main(void) {
  * Output: 		  None.
  */
 void add_random_edges(Graph *graph) {
-    for (int i = 0; i < no_of_nodes(graph); i++) {
-        for (int j = i + 1; j < no_of_nodes(graph); j++) {
-            if (rand() % 2) {
-                insert_edge(graph, i, j);
-            }
-        }
+  for (int i = 0; i < no_of_nodes(graph); i++) {
+    for (int j = i + 1; j < no_of_nodes(graph); j++) {
+      if (rand() % 2) {
+        insert_edge(graph, i, j);
+      }
     }
+  }
 }
 
 /*
@@ -82,25 +82,24 @@ void add_random_edges(Graph *graph) {
  * Output: 		  None.
  */
 void depth_first(int node, Graph *graph, bool *visited) {
-    visited[node] = true;
-    printf("%d", node);
+  visited[node] = true;
+  printf("%d", node);
 
-    Graph *neighbour_set = neighbours(graph, node);
-    int *neighbour_nodes = set_get_values(neighbour_set->nodes);
+  Graph *neighbour_set = neighbours(graph, node);
+  int *neighbour_nodes = set_get_values(neighbour_set->nodes);
 
-    for (int i = 0; i < no_of_nodes(graph); i++) {
-        if (set_member_of(i, neighbour_set->nodes)) {
-            if (!visited[i]) {
-                printf(" -> ");
-                depth_first(i, graph, visited);
-            }
-        }
+  for (int i = 0; i < no_of_nodes(graph); i++) {
+    if (set_member_of(i, neighbour_set->nodes)) {
+      if (!visited[i]) {
+        printf(" -> ");
+        depth_first(i, graph, visited);
+      }
     }
+  }
 
-    free(neighbour_nodes);
-    destroy_graph(neighbour_set);
+  free(neighbour_nodes);
+  destroy_graph(neighbour_set);
 }
-
 
 /*
  * Description: Print the neighbour list for each node in the graph.
@@ -110,19 +109,19 @@ void depth_first(int node, Graph *graph, bool *visited) {
  * Output: 		  None.
  */
 void print_neighbour_list(Graph *graph) {
-    for (int i = 0; i < no_of_nodes(graph); i++) {
-        printf("%d: ", i);
+  for (int i = 0; i < no_of_nodes(graph); i++) {
+    printf("%d: ", i);
 
-        Graph *neighbour_set = neighbours(graph, i);
-        int *neighbour_nodes = set_get_values(neighbour_set->nodes);
-        int neighbour_count = no_of_nodes(neighbour_set);
+    Graph *neighbour_set = neighbours(graph, i);
+    int *neighbour_nodes = set_get_values(neighbour_set->nodes);
+    int neighbour_count = no_of_nodes(neighbour_set);
 
-        for (int j = 0; j < neighbour_count; j++) {
-            printf("%d ", neighbour_nodes[j]);
-        }
-        printf("\n");
-
-        free(neighbour_nodes);
-        destroy_graph(neighbour_set);
+    for (int j = 0; j < neighbour_count; j++) {
+      printf("%d ", neighbour_nodes[j]);
     }
+    printf("\n");
+
+    free(neighbour_nodes);
+    destroy_graph(neighbour_set);
+  }
 }
