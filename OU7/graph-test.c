@@ -101,6 +101,7 @@ void depth_first(int node, Graph *graph, bool *visited) {
     destroy_graph(neighbour_set);
 }
 
+
 /*
  * Description: Print the neighbour list for each node in the graph.
  *

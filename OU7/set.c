@@ -23,147 +23,147 @@
  */
 
 struct set {
-  int capacity;
-  int size;
-  char *array;
+    int capacity;
+    int size;
+    char *array;
 };
 
 set *set_empty() {
-  set *s = malloc(sizeof(set));
-  s->capacity = 0;
-  s->size = 0;
-  s->array = NULL;
-  return s;
+    set *s = malloc(sizeof(set));
+    s->capacity = 0;
+    s->size = 0;
+    s->array = NULL;
+    return s;
 }
 
 set *set_single(const int value) {
-  set *s = set_empty();
-  set_insert(value, s);
-  return s;
+    set *s = set_empty();
+    set_insert(value, s);
+    return s;
 }
 
 void set_insert(const int value, set *s) {
-  if (!set_member_of(value, s)) {
-    int bit_in_array = value;
+    if (!set_member_of(value, s)) {
+        int bit_in_array = value;
 
-    if (bit_in_array >= s->capacity) {
-      int no_of_bytes = bit_in_array / 8 + 1;
-      s->array = realloc(s->array, no_of_bytes);
-      for (int i = s->capacity / 8; i < no_of_bytes; i++) {
-        s->array[i] = 0;
-      }
-      s->capacity = no_of_bytes * 8;
+        if (bit_in_array >= s->capacity) {
+            int no_of_bytes = bit_in_array / 8 + 1;
+            s->array = realloc(s->array, no_of_bytes);
+            for (int i = s->capacity / 8; i < no_of_bytes; i++) {
+                s->array[i] = 0;
+            }
+            s->capacity = no_of_bytes * 8;
+        }
+
+        int byte_no = bit_in_array / 8;
+        int bit = 7 - bit_in_array % 8;
+        s->array[byte_no] = s->array[byte_no] | 1 << bit;
+        s->size++;
     }
-
-    int byte_no = bit_in_array / 8;
-    int bit = 7 - bit_in_array % 8;
-    s->array[byte_no] = s->array[byte_no] | 1 << bit;
-    s->size++;
-  }
 }
 
 set *set_union(const set *const s1, const set *const s2) {
-  set *s = set_empty();
+    set *s = set_empty();
 
-  for (int i = 0; i < s1->capacity || i < s2->capacity; i++) {
-    if (set_member_of(i, s1) || set_member_of(i, s2)) {
-      set_insert(i, s);
+    for (int i = 0; i < s1->capacity || i < s2->capacity; i++) {
+        if (set_member_of(i, s1) || set_member_of(i, s2)) {
+            set_insert(i, s);
+        }
     }
-  }
 
-  return s;
+    return s;
 }
 
 set *set_intersection(const set *const s1, const set *const s2) {
-  set *s = set_empty();
+    set *s = set_empty();
 
-  for (int i = 0; i < s1->capacity && i < s2->capacity; i++) {
-    if (set_member_of(i, s1) && set_member_of(i, s2)) {
-      set_insert(i, s);
+    for (int i = 0; i < s1->capacity && i < s2->capacity; i++) {
+        if (set_member_of(i, s1) && set_member_of(i, s2)) {
+            set_insert(i, s);
+        }
     }
-  }
 
-  return s;
+    return s;
 }
 
 set *set_difference(const set *const s1, const set *const s2) {
-  set *s = set_empty();
+    set *s = set_empty();
 
-  for (int i = 0; i < s1->capacity; i++) {
-    if (set_member_of(i, s1) && !set_member_of(i, s2)) {
-      set_insert(i, s);
+    for (int i = 0; i < s1->capacity; i++) {
+        if (set_member_of(i, s1) && !set_member_of(i, s2)) {
+            set_insert(i, s);
+        }
     }
-  }
 
-  return s;
+    return s;
 }
 
 bool set_is_empty(const set *const s) { return s->size == 0; }
 
 bool set_member_of(const int value, const set *const s) {
-  int bit_in_array = value;
+    int bit_in_array = value;
 
-  if (bit_in_array >= s->capacity) {
-    return false;
-  }
+    if (bit_in_array >= s->capacity) {
+        return false;
+    }
 
-  int byte_no = bit_in_array / 8;
-  int bit = 7 - bit_in_array % 8;
-  char the_byte = s->array[byte_no];
+    int byte_no = bit_in_array / 8;
+    int bit = 7 - bit_in_array % 8;
+    char the_byte = s->array[byte_no];
 
-  return the_byte & 1 << bit;
+    return the_byte & 1 << bit;
 }
 
 int set_choose(const set *const s) {
-  srand(time(NULL));
-  int *temp = set_get_values(s);
-  int random = temp[rand() % s->size];
-  free(temp);
+    srand(time(NULL));
+    int *temp = set_get_values(s);
+    int random = temp[rand() % s->size];
+    free(temp);
 
-  return random;
+    return random;
 }
 
 void set_remove(const int value, set *const s) {
-  if (set_member_of(value, s)) {
-    int bit_in_array = value;
-    int byte_no = bit_in_array / 8;
-    int bit = 7 - bit_in_array % 8;
-    s->array[byte_no] = s->array[byte_no] & ~(1 << bit);
-    s->size--;
-  }
+    if (set_member_of(value, s)) {
+        int bit_in_array = value;
+        int byte_no = bit_in_array / 8;
+        int bit = 7 - bit_in_array % 8;
+        s->array[byte_no] = s->array[byte_no] & ~(1 << bit);
+        s->size--;
+    }
 }
 
 bool set_equal(const set *const s1, const set *const s2) {
-  return set_subset(s1, s2) && set_subset(s2, s1);
+    return set_subset(s1, s2) && set_subset(s2, s1);
 }
 
 bool set_subset(const set *const s1, const set *const s2) {
-  for (int i = 0; i < s1->capacity; i++) {
-    if (set_member_of(i, s1) && !set_member_of(i, s2)) {
-      return false;
+    for (int i = 0; i < s1->capacity; i++) {
+        if (set_member_of(i, s1) && !set_member_of(i, s2)) {
+            return false;
+        }
     }
-  }
 
-  return true;
+    return true;
 }
 
 int set_size(const set *const s) { return s->size; }
 
 int *set_get_values(const set *const s) {
-  int *values = malloc(s->size * sizeof(int));
-  int j = 0;
+    int *values = malloc(s->size * sizeof(int));
+    int j = 0;
 
-  for (int i = 0; i < s->capacity; i++) {
-    if (set_member_of(i, s)) {
-      values[j] = i;
-      j++;
+    for (int i = 0; i < s->capacity; i++) {
+        if (set_member_of(i, s)) {
+            values[j] = i;
+            j++;
+        }
     }
-  }
 
-  return values;
+    return values;
 }
 
 void set_destroy(set *s) {
-  free(s->array);
-  free(s);
+    free(s->array);
+    free(s);
 }
